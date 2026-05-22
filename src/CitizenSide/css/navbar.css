@@ -1,0 +1,328 @@
+/* =========================================================
+   👥 Citizen Layout - Professional Dashboard Styling
+   Prefix: citLay-
+   Theme Color: #104282 (Deep Blue)
+   Author: ChatGPT (for SeniorConnect Citizen Dashboard)
+   ========================================================= */
+
+/* ================== Base Layout ================== */
+.citLay-layout {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Inter", "Poppins", sans-serif;
+  background-color: #f6f8fc;
+  color: #333;
+}
+
+/* ================== Sidebar ================== */
+.citLay-sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
+  transition: width 0.3s ease;
+  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 98;
+  display: flex;
+  flex-direction: column;
+}
+
+.citLay-sidebar.closed {
+  width: 0;
+  overflow: hidden;
+}
+
+/* Sidebar Header */
+.citLay-sidebar-header {
+  background-color: #104282;
+  color: white;
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.citLay-name {
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #ffd369;
+}
+
+/* Sidebar Navigation List */
+.citLay-sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  flex-grow: 1;
+}
+
+.citLay-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #104282;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-left: 4px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.citLay-link:hover {
+  background-color: #f0f4fa;
+  border-left: 4px solid #104282;
+  color: #104282;
+}
+
+/* Logout Button */
+.citLay-logout {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #d62828;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.citLay-logout:hover {
+  background-color: #fff1f1;
+  color: #a11616;
+  border-left: 4px solid #d62828;
+}
+
+/* ================== Topbar ================== */
+.citLay-topbar {
+  background-color: #104282;
+  color: white;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  position: fixed;
+  top: 0;
+  left: 250px;
+  right: 0;
+  z-index: 99;
+  transition: left 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.citLay-topbar.full {
+  left: 0;
+}
+
+.citLay-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Menu Toggle Button */
+.citLay-toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.citLay-toggle-btn:hover {
+  color: #d9e6ff;
+  transform: scale(1.1);
+}
+
+/* ================== Main Content ================== */
+.citLay-main {
+  flex: 1;
+  padding: 24px;
+  margin-left: 250px;
+  margin-top: 60px;
+  transition: margin-left 0.3s ease;
+  background-color: #f6f8fc;
+  min-height: calc(100vh - 60px);
+}
+
+.citLay-main.sidebar-closed {
+  margin-left: 0;
+}
+
+/* ================== Logout Confirmation Modal ================== */
+.citLay-logout-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.25s ease;
+}
+
+.citLay-logout-modal {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 28px 36px;
+  width: 420px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: slideIn 0.25s ease;
+}
+
+.citLay-logout-modal h3 {
+  color: #104282;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.citLay-logout-modal p {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+.citLay-logout-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.citLay-logout-confirm {
+  background-color: #d62828;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 600;
+  flex: 1;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.citLay-logout-confirm:hover {
+  background-color: #a11616;
+}
+
+.citLay-logout-cancel {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 600;
+  flex: 1;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.citLay-logout-cancel:hover {
+  background-color: #565e64;
+}
+
+/* ================== Animations ================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ================== Responsive Design ================== */
+@media (max-width: 900px) {
+  .citLay-sidebar {
+    width: 210px;
+  }
+
+  .citLay-main {
+    margin-left: 210px;
+  }
+
+  .citLay-topbar {
+    left: 210px;
+  }
+
+  .citLay-sidebar.closed {
+    width: 0;
+  }
+
+  .citLay-main.sidebar-closed,
+  .citLay-topbar.full {
+    margin-left: 0;
+    left: 0;
+  }
+
+  .citLay-logout-modal {
+    width: 90%;
+    padding: 24px;
+  }
+
+  .citLay-logout-actions {
+    flex-direction: column;
+  }
+}
+
+/* =========================================================
+   👴 Senior-Friendly Sidebar Text Enhancement
+   ========================================================= */
+
+/* Sidebar Links */
+.citLay-link {
+  display: block;
+  text-decoration: none;
+  color: #104282;
+  padding: 16px 22px; /* 🟩 Slightly bigger padding */
+  font-size: 1.15rem; /* 🟩 Larger text for readability */
+  font-weight: 600;
+  line-height: 1.6; /* 🟩 Adds breathing space between lines */
+  border-left: 5px solid transparent;
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+}
+
+.citLay-link:hover {
+  background-color: #f0f4fb;
+  border-left: 5px solid #104282;
+  color: #0b2f5a;
+}
+
+/* Logout Button (same size as other links) */
+.citLay-logout {
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  color: #b12c2c;
+  font-size: 1.15rem; /* match the size */
+  font-weight: 600;
+  padding: 16px 22px;
+  transition: 0.25s ease;
+}
+
+.citLay-logout:hover {
+  background-color: #fff1f1;
+  border-left: 5px solid #b12c2c;
+}
+

@@ -1,0 +1,301 @@
+/* =======================================
+   ADMIN PASSWORD RESET (FORGOT / VERIFY / RESET)
+======================================= */
+:root {
+  --admin-primary: #1976d2;
+  --admin-primary-dark: #0f4ca0;
+  --admin-primary-light: #e3f2fd;
+  --admin-bg: #f7faff;
+  --admin-card-bg: #ffffff;
+  --admin-border: #cfd8dc;
+  --admin-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  --admin-text: #222;
+  --admin-error: #d32f2f;
+  --admin-success: #2e7d32;
+  --admin-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ============================
+   CONTAINER (Half Layout)
+============================ */
+.admin-login-container {
+  display: flex;
+  height: 100vh;
+  font-family: var(--admin-font);
+  background-color: var(--admin-bg);
+}
+
+/* LEFT SIDE - Background Image */
+.admin-login-image {
+  flex: 1;
+  background: linear-gradient(rgba(25, 118, 210, 0.25), rgba(25, 118, 210, 0.25)),
+    url('../images/admin-bg.png') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 60px;
+}
+
+.admin-login-image h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.admin-login-image p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* RIGHT SIDE - Form Wrapper */
+.admin-login-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--admin-card-bg);
+  padding: 60px 80px;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================
+   CARD (Shared by Forgot / Reset)
+============================ */
+.admin-forgot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-forgot-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--admin-card-bg);
+  padding: 45px 35px;
+  border-radius: 16px;
+  box-shadow: var(--admin-shadow);
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.admin-forgot-card h2 {
+  color: var(--admin-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* ============================
+   DESCRIPTION / TEXT
+============================ */
+.admin-forgot-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* ============================
+   FORM STYLING (Shared by All)
+============================ */
+.admin-forgot-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left;
+}
+
+.admin-forgot-form label {
+  font-weight: 600;
+  color: var(--admin-text);
+  font-size: 1rem;
+}
+
+.admin-forgot-form input {
+  padding: 14px 16px;
+  border: 2px solid var(--admin-border);
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-forgot-form input:focus {
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+  outline: none;
+}
+
+/* ============================
+   BUTTONS
+============================ */
+.admin-forgot-form button {
+  padding: 14px;
+  border-radius: 12px;
+  background-color: var(--admin-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.admin-forgot-form button:hover {
+  background-color: var(--admin-primary-dark);
+  transform: scale(1.02);
+}
+
+/* Back Button */
+.admin-reset-back-btn {
+  margin-top: 15px;
+  background: none;
+  border: none;
+  color: var(--admin-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.admin-reset-back-btn:hover {
+  text-decoration: underline;
+  color: var(--admin-primary-dark);
+}
+
+/* ============================
+   SHOW/HIDE PASSWORD TOGGLE
+============================ */
+.admin-password-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.admin-password-input input {
+  width: 100%;
+  padding-right: 45px; /* space for the icon */
+}
+
+.password-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.password-toggle:hover {
+  opacity: 1;
+  color: var(--admin-primary);
+}
+
+
+/* ============================
+   CANCEL BUTTON (Overrides Blue Button)
+============================ */
+.admin-forgot-form .admin-cancel-btn {
+  margin-top: 12px;
+  padding: 12px;
+  background: #eeeeee !important;
+  color: #333 !important;
+  border: 1px solid #bdbdbd;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+.admin-forgot-form .admin-cancel-btn:hover {
+  background-color: #e0e0e0 !important;
+  transform: scale(1.02);
+}
+
+
+
+/* ============================
+   PASSWORD HINT TEXT
+============================ */
+.admin-password-hint {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 4px;
+  font-style: italic;
+  text-align: left;
+}
+
+/* ============================
+   MESSAGES
+============================ */
+.admin-success-message {
+  color: var(--admin-success);
+  margin-top: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.admin-error-message {
+  color: var(--admin-error);
+  margin-top: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ============================
+   ANIMATION
+============================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+============================ */
+@media (max-width: 900px) {
+  .admin-login-container {
+    flex-direction: column;
+  }
+
+  .admin-login-image {
+    height: 35vh;
+    padding: 40px 25px;
+  }
+
+  .admin-login-form {
+    padding: 40px 30px;
+  }
+
+  .admin-forgot-card {
+    padding: 35px 25px;
+  }
+
+  .admin-forgot-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .admin-forgot-form input {
+    padding: 12px;
+  }
+
+  .admin-forgot-form button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}

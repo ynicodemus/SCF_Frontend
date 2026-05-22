@@ -1,0 +1,218 @@
+/* ============================================
+   DAMAYAN – Modern Citizen UI (damC- prefix)
+   Responsive • Clean • Professional
+   ============================================ */
+
+   :root{
+    --primary:#104282;
+    --primary-dark:#0b2f5b;
+    --accent:#198754;
+    --danger:#d7383b;
+    --muted-border:#e5eaf4;
+    --surface:#ffffff;
+    --soft-bg:#f9fbff;
+    --card-bg:#f4f7ff;
+    --max-width:1200px;
+    --radius:12px;
+    --gap:16px;
+    --font-stack: "Poppins", sans-serif;
+  }
+  
+  /* ============================
+     GLOBAL / LAYOUT
+  ============================ */
+   .table-responsive{
+   overflow:auto;
+   }
+
+  html,body{height:100%;}
+  .damC-container {
+    min-height: calc(100vh - 80px);
+    padding: 18px;
+    border-radius: var(--radius);
+    font-family: var(--font-stack);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  .damC-header {
+    text-align: center;
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 20px;
+  }
+  
+  /* ============================
+     CARDS & USER INFO
+  ============================ */
+  .damC-userInfo {
+    background: var(--card-bg);
+    padding: 16px;
+    border-radius: 10px;
+    border-left: 6px solid var(--primary);
+    margin-bottom: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .damC-userInfo p {margin: 4px 0; font-size: 0.95rem}
+  
+  /* ============================
+     BUTTONS
+  ============================ */
+  .damC-btnPrimary, .damC-btnDanger, .damC-btnSuccess{
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease;
+    display: inline-flex;
+    align-items: center;
+    gap:8px;
+  }
+  .damC-btnPrimary:hover{transform:translateY(-2px)}
+  .damC-btnPrimary{background:var(--primary); color:#fff}
+  .damC-btnDanger{background:var(--danger); color:#fff}
+  .damC-btnSuccess{background:var(--accent); color:#fff}
+  
+  /* helper: full width on small screens */
+  .damC-btn-block{width:100%;}
+  
+  /* ============================
+     QR PAYMENT SECTION
+  ============================ */
+  .damC-qrSection{
+    display:flex;
+    gap:var(--gap);
+    margin-top:18px;
+    padding:16px;
+    border-radius:10px;
+    border:1px solid var(--muted-border);
+    background:var(--soft-bg);
+    align-items:center;
+  }
+  .damC-qrLeft, .damC-qrRight{flex:1;}
+  .damC-qrImage{width:180px; max-width:40%; border-radius:10px; box-shadow:0 3px 8px rgba(0,0,0,0.08); display:block; margin-bottom:10px}
+  .damC-gcashInfo p{margin:4px 0; font-size:14px}
+  .damC-noteBox{background:#eef5ff; border-left:5px solid var(--primary); padding:10px; margin-top:10px; border-radius:6px; font-size:14px}
+  
+  /* ============================
+     TABLES (responsive)
+  ============================ */
+  .damC-table{width:100%; border-collapse:collapse; margin-top:10px; box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+  .damC-table th{background:#1167c4; color:#fff; padding:10px; font-weight:600; text-align:left; border:none; font-size:0.95rem}
+  .damC-table td{border-bottom:1px solid #e1e6f0; padding:10px; background:var(--surface); font-size:0.95rem}
+  .damC-table tr:hover td{background:#f1f5ff}
+  
+  /* Small tables -> make rows stack as cards */
+  .table-responsive{
+    overflow:auto;
+  }
+  
+  /* ============================
+     SECTION HEADER
+  ============================ */
+  .damC-sectionHeader{display:flex; justify-content:space-between; align-items:center; margin-top:36px; gap:12px}
+  .damC-sectionHeader h3{color:var(--primary); font-weight:700}
+  .damC-btnGroup{display:flex; gap:10px; flex-wrap:wrap}
+  
+  /* ============================
+     ENCOURAGE BOX
+  ============================ */
+  .damC-encourageBox{background:var(--surface); padding:22px; border-radius:12px; border:1px solid #dfe7f5; box-shadow:0 3px 10px rgba(0,0,0,0.06); margin-top:20px; text-align:center}
+  .damC-encourageTitle{font-size:clamp(16px,1.6vw,20px); font-weight:700; color:var(--primary); margin-bottom:10px}
+  .damC-encourageText{max-width:700px; margin:0 auto 20px; line-height:1.6}
+  .damC-encourageList{list-style:none; padding:0; margin-bottom:15px}
+  .damC-encourageList li{font-size:15px; margin-bottom:6px; color:var(--primary); position:relative; padding-left:22px}
+  .damC-encourageList li::before{position:absolute; left:0; top:1px; color:var(--accent); font-weight:bold}
+  
+  /* ============================
+     REJECTION MESSAGE
+  ============================ */
+  .damC-rejectedText{color:#d45757; font-size:18px; font-weight:700; margin-bottom:10px}
+  .damC-rejectionReason{background:#fff1f0; border-left:5px solid var(--danger); padding:10px; border-radius:6px; margin-bottom:15px}
+  
+  /* ============================
+     NOT MEMBER BOX
+  ============================ */
+  .damC-notMember{border-radius:10px; text-align:center; font-size:16px; height:100%; display:flex; justify-content:center; align-items:center}
+  
+  /* ============================
+     OVERLAY / MODAL
+  ============================ */
+  .damC-overlay{position:fixed; inset:0; background:rgba(0,0,0,0.45); backdrop-filter:blur(2px); display:flex; align-items:center; justify-content:center; z-index:2000; animation:damC-fadeIn .25s ease}
+  .damC-modal{background:var(--surface); padding:20px; border-radius:12px; max-width:520px; width:92%; text-align:left; box-shadow:0 8px 28px rgba(0,0,0,0.18); animation:damC-popUp .2s ease}
+  .damC-modal h4{margin-top:0}
+  .damC-modalActions{display:flex; justify-content:flex-end; gap:12px; flex-wrap:wrap}
+  
+  /* ============================
+     TOP IMAGE PLACEHOLDER
+  ============================ */
+  .damC-topImagePlaceholder{background-size:cover; background-position:center; background-repeat:no-repeat; width:100%; height:220px; border-radius:10px; margin:0 0 20px;}
+  .damC-topImagePlaceholder.small{height:140px}
+  
+  /* ============================
+     FEATURE GRID
+  ============================ */
+  .damC-featureGrid{display:grid; grid-template-columns:repeat(4,1fr); gap:15px; margin:20px auto; max-width:900px}
+  .damC-featureCardSq{background:#ffffff; border-radius:12px; border:1px solid #dfe7f5; box-shadow:0 3px 10px rgba(0,0,0,0.06); height:150px; padding:15px; display:flex; align-items:flex-end; justify-content:center; text-align:center; color:#104282; font-size:15px; font-weight:600; transition:transform .18s ease}
+  .damC-featureCardSq:hover{transform:translateY(-4px); box-shadow:0 8px 18px rgba(0,0,0,0.08)}
+  .damC-featureCardSq{background-size:cover; background-repeat:no-repeat; background-position:center; position:relative; overflow:hidden}
+  .damC-featureCardSq p, .damC-featureCardSq{color:white !important; font-weight:600; text-shadow:0 2px 4px rgba(0,0,0,0.6)}
+  .damC-featureCardSq::after{content:""; position:absolute; left:0; bottom:0; width:100%; height:50%; background:linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.00)); border-radius:inherit; pointer-events:none}
+  
+  /* ============================
+     Small / Medium breakpoints
+  ============================ */
+  @media (max-width:1100px){
+    .damC-featureGrid{grid-template-columns:repeat(3,1fr)}
+    .damC-topImagePlaceholder{height:200px}
+  }
+  
+  @media (max-width:900px){
+    .damC-featureGrid{grid-template-columns:repeat(2,1fr)}
+    .damC-qrSection{flex-direction:column; align-items:flex-start}
+    .damC-qrImage{width:140px; max-width:100%}
+    .damC-encourageBox{padding:16px}
+    .damC-sectionHeader{flex-direction:column; align-items:flex-start; gap:10px}
+    .damC-modal{padding:18px}
+  }
+  
+  @media (max-width:700px){
+    .damC-featureGrid{grid-template-columns:1fr}
+    .damC-topImagePlaceholder{height:140px}
+    .damC-qrImage{width:120px}
+    .damC-userInfo{padding:12px}
+    .damC-btnPrimary, .damC-btnDanger, .damC-btnSuccess{width:100%; justify-content:center}
+    .damC-modal{width:95%; max-width:420px}
+    .damC-table td::before{width:45%}
+  }
+  
+  /* tiny phones */
+  @media (max-width:420px){
+    .damC-header{font-size:18px}
+    .damC-topImagePlaceholder{height:110px}
+    .damC-featureCardSq{height:120px; padding:12px; font-size:14px}
+    .damC-qrSection{padding:12px}
+    .damC-modal{padding:16px}
+  }
+  
+  /* ============================
+     UTILITIES
+  ============================ */
+  .flex{display:flex}
+  .flex-col{display:flex; flex-direction:column}
+  .center{display:flex; align-items:center; justify-content:center}
+  .mt-1{margin-top:8px}
+  .mb-1{margin-bottom:8px}
+  .p-1{padding:8px}
+  
+  /* ============================
+     Animations
+  ============================ */
+  @keyframes damC-fadeIn{from{opacity:0}to{opacity:1}}
+  @keyframes damC-popUp{from{opacity:0; transform:scale(.96)} to{opacity:1; transform:scale(1)}}
+  
+  /* END */
+  

@@ -1,0 +1,97 @@
+.verifyAcc-container {
+    flex: 1;
+    padding: 40px;
+    max-width: 620px;
+    margin: 100px auto;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .verifyAcc-title {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  
+  .verifyAcc-note {
+    font-size: 0.95rem;
+    color: #555;
+    background: #f1f7ff;
+    border-left: 4px solid #1976d2;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 25px;
+    text-align: left;
+  }
+  
+  .verifyAcc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .verifyAcc-inputGroup {
+    text-align: left;
+  }
+  
+  .verifyAcc-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .verifyAcc-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .verifyAcc-input:focus {
+    outline: none;
+    border-color: #1976d2;
+    box-shadow: 0 0 4px rgba(25, 118, 210, 0.3);
+  }
+  
+  .verifyAcc-button {
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .verifyAcc-button:hover:not(:disabled) {
+    background-color: #145ca2;
+  }
+  
+  .verifyAcc-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .verifyAcc-error {
+    color: #d32f2f;
+    margin-top: -5px;
+    font-size: 0.95rem;
+  }
+  
+  .verifyAcc-success {
+    margin-top: 40px;
+    color: #2e7d32;
+  }
+  
+  .verifyAcc-success h3 {
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+  }
+  

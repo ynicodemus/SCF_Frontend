@@ -1,0 +1,250 @@
+/* =========================================================
+   🧓 Senior Citizen Profile - Professional Dashboard Styling
+   Prefix: prof-
+   Theme Color: #104282 (Deep Blue)
+   Author: ChatGPT (for SeniorConnect)
+   ========================================================= */
+
+/* 🩵 Base Container */
+.prof-container {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  font-family: "Inter", "Poppins", sans-serif;
+  color: #333;
+}
+
+/* ================================
+   🖼 Dynamic Banner
+   ================================ */
+.prof-banner {
+  width: 100%;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 35px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.prof-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================================
+   📋 Body Sections
+   ================================ */
+.prof-body {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.prof-section {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.prof-section-title {
+  color: #104282;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  border-left: 4px solid #104282;
+  padding-left: 10px;
+}
+
+/* ================================
+   👤 Profile Section Inside Info Card
+   ================================ */
+.prof-photo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.prof-photo-section .prof-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid #104282;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(16, 66, 130, 0.25);
+  margin-bottom: 10px;
+}
+
+.prof-id-box {
+  background-color: #104282;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ================================
+   📑 Info Grid
+   ================================ */
+.prof-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+}
+
+.prof-info-item {
+  background-color: #f9fbff;
+  border: 1px solid #e0e6ed;
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: all 0.2s ease;
+  min-height: 80px;
+}
+
+.prof-info-item:hover {
+  background-color: #eef4ff;
+  border-color: #c7d6f3;
+}
+
+.prof-info-item label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.prof-info-item p {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* 📧 Email Link */
+.prof-email-link {
+  color: #104282;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.prof-email-link:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Status Labels */
+.prof-status-active {
+  color: #198754;
+  font-weight: 700;
+}
+
+.prof-status-inactive {
+  color: #b12c2c;
+  font-weight: 700;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 900px) {
+  .prof-container {
+    padding: 20px;
+  }
+
+  .prof-photo-section .prof-photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .prof-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prof-section {
+    padding: 20px;
+  }
+
+  .prof-banner {
+    height: 180px;
+  }
+}
+
+/* ================================
+   🧍 Personal Info + Photo Layout (Side-by-side)
+   ================================ */
+.prof-personal-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.prof-personal-layout::after {
+  content: "";
+  position: absolute;
+  right: 230px; /* aligns before photo */
+  top: 15%;
+  bottom: 15%;
+  width: 1px;
+  background-color: #dfe6f0;
+  border-radius: 10px;
+}
+
+/* 👈 Left info */
+.prof-info-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+/* 👉 Right profile photo section */
+.prof-photo-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 220px;
+  padding-top: 10px;
+}
+
+.prof-photo-side .prof-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid #104282;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(16, 66, 130, 0.25);
+  margin-bottom: 8px;
+}
+
+.prof-photo-side .prof-id-box {
+  background-color: #104282;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 📱 Responsive: stack vertically on smaller screens */
+@media (max-width: 900px) {
+  .prof-personal-layout {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .prof-photo-side {
+    min-width: unset;
+  }
+
+  .prof-photo-side .prof-photo {
+    width: 110px;
+    height: 110px;
+  }
+}

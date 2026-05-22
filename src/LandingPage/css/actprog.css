@@ -1,0 +1,137 @@
+:root {
+  --primary: #1976d2;
+  --text-dark: #1f2933;
+  --muted: #555;
+  --card-bg: #ffffff;
+  --page-bg: #f7f9fc;
+  --radius: 14px;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* PAGE CONTAINER */
+.LPAct-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--page-bg);
+}
+
+/* MAIN SECTION */
+.LPAct-main {
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.LPAct-main h2 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+.LPAct-desc {
+  font-size: 1.15rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  max-width: 850px;
+  margin: 0 auto 2.5rem auto;
+}
+
+/* GRID CONTAINER */
+.LPAct-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* CARD STYLE */
+.LPAct-card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem 1.5rem;
+  text-align: left;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.LPAct-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* CARD TITLE */
+.LPAct-card h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.8rem;
+}
+
+/* CARD TEXT */
+.LPAct-card span {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* CARD IMAGE */
+.LPAct-img {
+  height: 140px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #e9f1ff;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 1rem;
+}
+
+/* FOOTER */
+.LPAct-footer {
+  text-align: center;
+  padding: 1.2rem;
+  color: var(--muted);
+  background-color: #fff;
+  font-size: 0.95rem;
+  margin-top: auto;
+  border-top: 1px solid #e3e8f0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .LPAct-main h2 {
+    font-size: 2rem;
+  }
+
+  .LPAct-desc {
+    font-size: 1rem;
+  }
+
+  .LPAct-card {
+    padding: 1.5rem 1.2rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .LPAct-main {
+    margin-top: 2rem;
+  }
+
+  .LPAct-card h4 {
+    font-size: 1.2rem;
+  }
+
+  .LPAct-card span {
+    font-size: 0.98rem;
+  }
+
+  .LPAct-desc {
+    text-align: center;
+    line-height: 1.5;
+  }
+}

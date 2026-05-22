@@ -1,0 +1,280 @@
+:root {
+  --primary: #1976d2;
+  --primary-light: #e8f1fb;
+  --text-dark: #1f2933;
+  --muted: #555;
+  --bg-light: #f4f6fa;
+  --radius: 16px;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+/* =============================
+   PAGE BACKGROUND
+============================= */
+.LPAbout-bg {
+  background-color: var(--bg-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+/* =============================
+   MAIN WRAPPER
+============================= */
+.LPAbout-wrapper {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* =============================
+   PAGE TITLE
+============================= */
+.LPAbout-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 2rem 0 2.5rem 0;
+  letter-spacing: -1px;
+}
+
+/* =============================
+   FLEX CARDS (Mission, Vision, Values)
+============================= */
+.LPAbout-flex {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.LPAbout-box {
+  flex: 1;
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.LPAbout-box:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.LPAbout-box h3 {
+  font-size: 1.7rem;
+  color: var(--primary);
+  margin-bottom: 0.9rem;
+  letter-spacing: -0.5px;
+}
+
+.LPAbout-box p {
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 1.05rem;
+}
+
+/* =============================
+   CONTENT SECTIONS (Legal Basis)
+============================= */
+.LPAbout-section {
+  text-align: center;
+  margin: 3rem 0;
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s ease;
+}
+
+.LPAbout-section:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.LPAbout-section h2 {
+  font-size: 2.3rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.LPAbout-section p {
+  max-width: 820px;
+  margin: 0.8rem auto;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 1.07rem;
+}
+
+/* =============================
+   TEAM SECTION
+============================= */
+.LPAbout-team {
+  margin: 3rem 0 2rem 0;
+  text-align: center;
+}
+
+.LPAbout-team h3 {
+  font-size: 2.3rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.LPAbout-team-list {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.LPAbout-team-card {
+  background: #fff;
+  width: 250px;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.LPAbout-team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.LPAbout-team-img {
+  height: 130px;
+  width: 130px;
+  background-color: var(--primary-light);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+}
+
+.LPAbout-team-card h4 {
+  margin-bottom: 0.3rem;
+  font-size: 1.35rem;
+  color: var(--text-dark);
+}
+
+.LPAbout-team-card span {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* =============================
+   CONTACT
+============================= */
+.LPAbout-contact {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.LPAbout-contact h3 {
+  font-size: 2.3rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.LPAbout-contact p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.LPAbout-contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: var(--text-dark);
+  font-size: 1.05rem;
+}
+
+/* =============================
+   FOOTER
+============================= */
+.LPAbout-footer {
+  text-align: center;
+  padding: 1.4rem;
+  background: #fff;
+  color: var(--muted);
+  border-top: 1px solid #e9edf2;
+  margin-top: auto;
+  font-size: 0.95rem;
+}
+
+/* ICON in circle background */
+.LPAbout-icon {
+  font-size: 2.3rem;
+  color: #fff;
+  background: var(--primary);
+  padding: 15px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.LPAbout-icon-lg {
+  font-size: 2.6rem;
+  color: #fff;
+  background: var(--primary);
+  padding: 18px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.LPAbout-team-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+}
+
+
+/* =============================
+   RESPONSIVE DESIGN
+============================= */
+@media (max-width: 900px) {
+  .LPAbout-title {
+    font-size: 2.5rem;
+  }
+
+  .LPAbout-box {
+    padding: 1.7rem;
+  }
+
+  .LPAbout-section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .LPAbout-title {
+    font-size: 2.2rem;
+  }
+
+  .LPAbout-team-card {
+    width: 92%;
+  }
+
+  .LPAbout-main {
+    padding: 1rem;
+  }
+
+  .LPAbout-section h2 {
+    font-size: 1.9rem;
+  }
+
+  .LPAbout-section p {
+    font-size: 1rem;
+  }
+}

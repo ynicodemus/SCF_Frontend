@@ -1,0 +1,122 @@
+:root {
+    --cdash-bg: #f7faff;
+    --cdash-card: #fff;
+    --cdash-accent: #1976d2;
+    --cdash-shadow: 0 4px 16px rgba(25, 118, 210, 0.08);
+    --cdash-border: #e3e7f0;
+    --cdash-radius: 16px;
+    --cdash-muted: #6b7280;
+  }
+  
+  .CDashboard {
+    background: var(--cdash-bg);
+    min-height: 100vh;
+    padding: 38px 0 60px 0;
+    font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .CDashboard h2 {
+    font-size: 2rem;
+    color: var(--cdash-accent);
+    margin-bottom: 6px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+  }
+  .cd-desc {
+    color: var(--cdash-muted);
+    font-size: 1.08rem;
+    margin-bottom: 30px;
+  }
+  
+  .cd-stats {
+    display: flex;
+    gap: 34px;
+    margin-bottom: 38px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .cd-stat-card {
+    background: var(--cdash-card);
+    border-radius: var(--cdash-radius);
+    box-shadow: var(--cdash-shadow);
+    border: 1.2px solid var(--cdash-border);
+    min-width: 150px;
+    max-width: 210px;
+    padding: 24px 20px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 3px;
+  }
+  
+  .cd-stat-icon {
+    font-size: 2.1rem;
+    margin-bottom: 7px;
+  }
+  .cd-stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--cdash-accent);
+    margin-bottom: 4px;
+  }
+  .cd-stat-label {
+    color: var(--cdash-muted);
+    font-size: 1.05rem;
+  }
+  
+  .cd-section {
+    width: 100%;
+    max-width: 540px;
+    margin-top: 12px;
+    background: var(--cdash-card);
+    border-radius: var(--cdash-radius);
+    box-shadow: var(--cdash-shadow);
+    border: 1.2px solid var(--cdash-border);
+    padding: 22px 22px 14px 22px;
+  }
+  
+  .cd-section h3 {
+    font-size: 1.14rem;
+    font-weight: 600;
+    color: var(--cdash-accent);
+    margin-bottom: 12px;
+  }
+  
+  .cd-empty {
+    color: #a3acb8;
+    font-size: 1.02rem;
+    text-align: center;
+    font-style: italic;
+  }
+  
+  .cd-event-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .cd-event-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px solid #e3e7f0;
+    font-size: 1.03rem;
+  }
+  .cd-event-item:last-child {
+    border-bottom: none;
+  }
+  
+  .cd-event-title {
+    color: var(--cdash-accent);
+    font-weight: 500;
+  }
+  .cd-event-datetime {
+    color: var(--cdash-muted);
+    font-size: 0.98rem;
+  }
+  

@@ -1,0 +1,123 @@
+:root {
+  --main-bg: #f7faff;
+  --card-bg: #fff;
+  --primary: #1976d2;
+  --primary-dark: #1653a5;
+  --accent: #82ca9d;
+  --shadow: 0 4px 16px 0 rgba(25, 118, 210, 0.10);
+  --border: #e3e7f0;
+  --muted: #6b7280;
+  --radius: 18px;
+}
+
+.fanalysis-container {
+  background: var(--main-bg);
+  min-height: 100vh;
+  padding: 3vw 0 5vw 0;
+  font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.fanalysis-container h2 {
+  font-size: 2.2rem;
+  color: var(--primary-dark);
+  font-weight: 700;
+  margin-bottom: 2vw;
+}
+
+.chart-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw 3vw;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2vw;
+  box-sizing: border-box;
+}
+
+.chart-card {
+  flex: 1 1 340px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1.1px solid var(--border);
+  padding: 2vw 2vw 1vw 2vw;
+  min-width: 280px;
+  max-width: 470px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.chart-card h3 {
+  color: var(--primary);
+  font-size: 1.2rem;
+  margin-bottom: 1.4vw;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.recharts-responsive-container {
+  width: 100% !important;
+  min-height: 180px;
+}
+
+.fanalysis-container h3 {
+  margin-top: 2vw;
+  margin-bottom: 0.8vw;
+  color: var(--primary-dark);
+  font-size: 1.14rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
+.brgy-grid {
+  width: 100%;
+  max-width: 1120px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5vw 2vw;
+  margin-top: 1vw;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.brgy-box {
+  background: var(--card-bg);
+  border: 1.1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px #e3e7f0;
+  min-width: 160px;
+  max-width: 220px;
+  padding: 1.3vw 1.7vw 0.8vw 1.7vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.7vw;
+  box-sizing: border-box;
+}
+.brgy-box h4 {
+  color: var(--primary);
+  font-size: 1.09rem;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+.brgy-box p {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.recharts-default-tooltip {
+  font-size: 1rem !important;
+}
+.recharts-legend-item-text {
+  color: var(--muted) !important;
+  font-weight: 500;
+}

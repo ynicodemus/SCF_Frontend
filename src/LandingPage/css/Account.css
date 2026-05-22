@@ -1,0 +1,334 @@
+:root {
+  --primary: #1976d2;
+  --primary-dark: #0f4ca0;
+  --primary-light: #e3f2fd;
+  --bg: #f7faff;
+  --card-bg: #fff;
+  --border: #cfd8dc;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --text: #222;
+}
+
+/* ============================
+   PAGE LAYOUT
+============================ */
+.scAccountPage {
+  background-color: var(--bg);
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.scLoginLayout {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 70px);
+}
+
+/* ============================
+   LEFT SIDE (IMAGE + OVERLAY)
+============================ */
+.scLoginLeft {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  color: white;
+  text-align: center;
+  transition: background-image 1s ease-in-out;
+}
+
+.scLoginText h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.scLoginText p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================
+   RIGHT SIDE (LOGIN FORM)
+============================ */
+.scLoginRight {
+  flex: 1;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 160px;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Title */
+.scLoginRight h2 {
+  color: var(--primary);
+  margin-bottom: 50px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* ============================
+   FORM INPUTS
+============================ */
+.scFormSection {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.scFormSection label {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.scFormSection input {
+  padding: 18px 16px;
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  outline: none;
+  font-size: 1.1rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.scFormSection input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+}
+
+/* Forgot password */
+.scForgotPassword {
+  text-align: right;
+  margin-top: -10px;
+}
+
+.scForgotPassword span {
+  color: var(--primary);
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.scForgotPassword span:hover {
+  color: var(--primary-dark);
+}
+
+/* ============================
+   BUTTONS
+============================ */
+button {
+  border-radius: 14px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.5px;
+}
+
+.scLoginBtn,
+.scSignupBtn {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Login button */
+.scLoginBtn {
+  background-color: var(--primary);
+  color: white;
+}
+
+.scLoginBtn:hover {
+  background-color: var(--primary-dark);
+  transform: scale(1.02);
+}
+
+/* Sign up button */
+.scSignupBtn {
+  background: var(--primary-light);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.scSignupBtn:hover {
+  background: #bbdefb;
+  transform: scale(1.02);
+}
+
+/* ============================
+   ADMIN LINK
+============================ */
+.scAdminLink {
+  margin-top: 30px;
+  font-size: 1.05rem;
+  text-align: left;
+  color: var(--text);
+}
+
+.scAdminLink span {
+  color: var(--primary);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.scAdminLink span:hover {
+  color: var(--primary-dark);
+}
+
+.scOtpNote {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: left;
+  font-style: italic;
+}
+
+.scPasswordNote {
+  font-size: 0.85rem;
+  color: #555;
+  text-align: left;
+  font-style: italic;
+}
+
+.scBackBtn {
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  color: #1976d2;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.scBackBtn:hover {
+  text-decoration: underline;
+}
+
+/* ============================
+   ERROR MESSAGE
+============================ */
+.scErrorText {
+  color: red;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* ============================
+   ANIMATION
+============================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+============================ */
+@media (max-width: 900px) {
+  .scLoginLayout {
+    flex-direction: column;
+  }
+
+  .scLoginLeft {
+    display: none;
+  }
+
+  .scLoginRight {
+    padding: 0px 30px;
+  }
+
+  .scLoginRight h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .scFormSection label {
+    font-size: 1.1rem;
+  }
+
+  .scFormSection input {
+    font-size: 1rem;
+    padding: 14px;
+  }
+
+  .scForgotPassword {
+    text-align: center;
+  }
+
+  button {
+    font-size: 1.1rem;
+  }
+
+  .scAdminLink {
+    text-align: center;
+  }
+}
+
+/* Mobile Logo */
+.scMobileLoginLogo {
+  display: none;
+  width: 120px;
+  margin: 15px auto 0px;
+}
+
+@media (max-width: 768px) {
+  .scMobileLoginLogo {
+    display: block;
+  }
+}
+
+
+.scLoginRightWrapper {
+  position: relative;
+}
+
+.scSoftAlert {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 350px;
+  transform: translateX(-50%);
+  background: #ffefef;
+  color: #c62828;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid #f5c2c7;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translate(-50%, -10px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}

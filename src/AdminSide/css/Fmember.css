@@ -1,0 +1,1325 @@
+/* =========================================================
+   🧭 Federation Member Dashboard - Professional Styling
+   Prefix: fedeM-
+   Author: ChatGPT (for your SeniorConnect Admin Dashboard)
+   ========================================================= */
+
+   :root {
+    --fedeM-primary: #104282;
+    --fedeM-primary-dark: #0b2f5a;
+    --fedeM-light-bg: #f5f7fa;
+    --fedeM-card-bg: #ffffff;
+    --fedeM-border: #e0e6ed;
+    --fedeM-text: #333;
+    --fedeM-muted: #666;
+    --fedeM-success: #198754;
+    --fedeM-danger: #d32f2f;
+  }
+  .fedeM-idReadyArchive {
+    color: #c62828;
+    font-weight: 700;
+    background: #fff4f4;
+  }
+  
+  .fedeM-readyDot {
+    color: #d32f2f;
+    margin-left: 6px;
+    font-size: 12px;
+    animation: pulse 1.2s infinite;
+  }
+
+  .fedeM-clickableId {
+    cursor: pointer;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+  
+  /* =========================================================
+   🚫 Not Eligible Modal (Damayan Restriction)
+   Prefix: fedeM-
+   ========================================================= */
+
+.fedeM-pagination {
+  display: flex;
+  justify-content: flex-end; /* 👉 ilalagay sa kanan */
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+/* Title styling */
+.fedeM-modalContent h2 {
+  color: #b32d2d; /* danger red */
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* Warning highlight */
+.fedeM-warningText {
+  background-color: #fff1f1;
+  color: #b32d2d;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin: 10px 0 14px;
+  font-weight: 600;
+  border-left: 4px solid #b32d2d;
+}
+
+/* Body text */
+.fedeM-modalContent p {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Emphasis text inside message */
+.fedeM-modalContent b {
+  color: #104282;
+  font-weight: 700;
+}
+
+/* OK button (single action modal) */
+.fedeM-modalBtns #cancel {
+  background-color: #104282;
+  color: #fff;
+  padding: 10px 30px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
+.fedeM-modalBtns #cancel:hover {
+  background-color: #0b2f5c;
+  transform: translateY(-1px);
+}
+
+
+  .fedeM-statusClaiming {
+  background-color: #ff9800;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* =========================================================
+   ✅ Damayan Status – Claimed by (Name)
+   ========================================================= */
+
+   .fedeM-statusClaimed {
+    display: inline-block;  
+    color: #82101a;                 /* main accent */
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 14px;
+    line-height: 1.3;
+  }
+  
+  /* Highlight claimant name */
+  .fedeM-statusClaimed b {
+    font-weight: 700;
+  }
+  
+  /* Optional icon-style dot */
+  .fedeM-statusClaimed::before {
+    margin-right: 6px;
+    color: #2e7d32; /* success green */
+    font-size: 0.75rem;
+  }
+  
+  /* Tooltip cursor */
+  .fedeM-statusClaimed[title] {
+    cursor: help;
+  }
+  
+
+/* === Federation Download Button Styling === */
+.fedeM-subtitleRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+  flex-wrap: wrap; /* ensures responsive wrapping on smaller screens */
+}
+
+.fedeM-downloadBtn {
+  background: #104282;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 160px;
+}
+
+.fedeM-downloadBtn:hover {
+  background: #0c3566;
+  transform: translateY(-1px);
+}
+
+.fedeM-downloadBtn:active {
+  transform: scale(0.98);
+}
+
+  
+  /* ===== Main Container ===== */
+  .fedeM-mainCont {
+    background-color: var(--fedeM-light-bg);
+    font-family: "Inter", "Poppins", sans-serif;
+    color: var(--fedeM-text);
+  }
+  
+  /* ===== Header Layout ===== */
+  .fedeM-header {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Title row - title left, download right */
+  .fedeM-titleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+  
+  .fedeM-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--fedeM-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .fedeM-title-accent {
+    width: 6px;
+    height: 26px;
+    background-color: var(--fedeM-primary);
+    border-radius: 3px;
+  }
+
+.fedeM-subtitle {
+  display: inline-block;
+  font-size: 1rem;
+  color: #555;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+  .fedeM-tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.fedeM-tooltip-text {
+  visibility: hidden;
+  width: 140px;
+  background-color: #104282;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* adjust kung saan lalabas (above the button) */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.fedeM-blurOverlay {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25); /* dim effect */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 998; /* below side panel (999) */
+}
+
+.fedeM-tooltip-container:hover .fedeM-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+  /* Subtext */
+  .fedeM-subtext {
+    color: var(--fedeM-muted);
+    font-size: 14px;
+    margin-top: -3px;
+  }
+  
+  /* Divider line */
+  .fedeM-divider {
+    border: none;
+    border-top: 1px solid var(--fedeM-border);
+    opacity: 0.5;
+    margin: 10px 0;
+  }
+  
+  /* ===== Toolbar Layout ===== */
+  .fedeM-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+  }
+
+  #fedeM-Edit{
+    background-color: #198754;
+  }
+  
+  .fedeM-toolbarLeft{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  
+  /* Left filter buttons */
+  .fedeM-filterBtn {
+    background: #4f6187;
+    color: white;
+    border: none;
+    width: 100%;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    box-shadow: 0 2px 4px rgba(16, 66, 130, 0.25);
+  }
+
+  
+  .fedeM-filterBtn:hover {
+    background: #5a6268;
+  }
+
+  .fedeM-toolbarRight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
+  .fedeM-toolbarRight #add {
+    background: #198754;
+  }
+  /* Right action buttons */
+  .fedeM-toolbarRight button {
+    background: #1e507b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .fedeM-toolbarRight button:hover {
+    background: var(--fedeM-primary-dark);
+    transform: translateY(-1px);
+  }
+  
+  /* Search input */
+  .fedeM-toolbarRight input[type="text"] {
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #c7c7c7;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    width: 230px;
+  }
+  
+  .fedeM-toolbarRight input[type="text"]:focus {
+    border-color: #104282;
+    box-shadow: 0 0 0 2px rgba(16, 66, 130, 0.1);
+  }
+  
+  /* ===== Form Overlay ===== */
+  .fedeM-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 17, 17, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 60;
+  }
+  
+  .fedeM-addCitizen {
+    background: var(--fedeM-card-bg);
+    padding: 30px 40px;
+    border-radius: 16px;
+    width: 720px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 8px 24px rgba(16, 66, 130, 0.15);
+    animation: fedeM-fadeIn 0.3s ease;
+  }
+  
+
+/* ADD FORM */
+/* =========================================================
+   📋 Federation Member - Add/Edit Senior Form Styles
+   Prefix: fedeM-
+   Theme color: #104282
+   ========================================================= */
+
+/* 🔹 Overlay for modal background */
+.fedeM-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(16, 66, 130, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(3px);
+}
+
+/* 🔹 Form container */
+.fedeM-addCitizen {
+  background-color: #ffffff;
+  width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 15px;
+  padding: 25px 35px 30px 35px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  animation: fedeM-fadeIn 0.3s ease-in-out;
+}
+
+/* 🔹 Header title (ADD SENIOR / EDIT SENIOR) */
+#fedeM-head {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+#fedeM-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #104282;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* 🔹 Error message box */
+.fedeM-formError {
+  background-color: #ffe5e5;
+  color: #c00;
+  border-left: 4px solid #c00;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+/* 🔹 Input container */
+.fedeM-inputAdd {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px 20px;
+  margin-bottom: 25px;
+}
+
+/* 🔹 Each input group */
+.fedeM-inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.fedeM-inputGroup label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* 🔹 Inputs & selects */
+.fedeM-inputGroup input,
+.fedeM-inputGroup select {
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.fedeM-inputGroup input:focus,
+.fedeM-inputGroup select:focus {
+  border-color: #104282;
+  box-shadow: 0 0 0 2px rgba(16, 66, 130, 0.1);
+}
+
+/* 🔹 Section labels (e.g., EMERGENCY CONTACT) */
+#fedeM-name:not(:first-child) {
+  margin-top: 15px;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #104282;
+  font-weight: 700;
+  border-left: 4px solid #104282;
+  padding-left: 8px;
+}
+
+/* 🔹 Buttons section */
+#fedeM-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+#fedeM-buttons button {
+  padding: 10px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#fedeM-buttons button[type="submit"] {
+  background-color: #198754;
+  color: white;
+}
+
+#fedeM-buttons button[type="submit"]:hover {
+  background-color: #0b5834;
+}
+
+#fedeM-buttons button[type="button"] {
+  background-color: #dcdcdc;
+  color: #333;
+}
+
+#fedeM-buttons button[type="button"]:hover {
+  background-color: #bfbfbf;
+}
+
+/* 🔹 Scrollbar style (for long forms) */
+.fedeM-addCitizen::-webkit-scrollbar {
+  width: 8px;
+}
+
+.fedeM-addCitizen::-webkit-scrollbar-thumb {
+  background-color: #104282;
+  border-radius: 4px;
+}
+
+.fedeM-addCitizen::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* 🔸 Required field asterisk */
+.fedeM-required {
+  color: red;
+  margin-left: 3px;
+  font-weight: bold;
+}
+
+/* 🔹 Upload Picture styling */
+.fedeM-inputGroup input[type="file"] {
+  border: 1px dashed #bbb;
+  background-color: #fafafa;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 0.9rem;
+}
+
+.fedeM-inputGroup input[type="file"]:hover {
+  border-color: #104282;
+  background-color: #f0f6ff;
+}
+
+/* Optional: preview style (if you later want to show uploaded image preview) */
+.fedeM-photo-preview {
+  margin-top: 6px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Make Upload Picture field wider */
+.fedeM-inputGroup input[type="file"] {
+  width: 100%;
+}
+
+/* Add inline image preview beside the upload button */
+.fedeM-uploadWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fedeM-photoPreview {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+
+
+/* 🔹 Smooth fade-in animation */
+@keyframes fedeM-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  
+  /* ===== Form Buttons ===== */
+  #fedeM-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+  }
+  
+  #fedeM-buttons button {
+    background: var(--fedeM-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 2px 6px rgba(16, 66, 130, 0.3);
+  }
+  
+  #fedeM-buttons button:hover {
+    background: var(--fedeM-primary-dark);
+    transform: translateY(-2px);
+  }
+  
+  /* ===== Table ===== */
+/* ===== Table ===== */
+.fedeM-tableContainer {
+  background: var(--fedeM-card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(16, 66, 130, 0.1);
+  overflow-x: auto;
+  overflow-y: auto; /* ✅ scroll vertically */
+  margin-top: 30px;
+  padding: 0; /* ✅ remove padding so header aligns perfectly */
+  border: 1px solid var(--fedeM-border);
+  max-height: 750px; /* ✅ limit height for scroll */
+}
+
+/* Keep header visible when scrolling */
+.fedeM-tableContainer table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.fedeM-tableContainer thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.fedeM-tableContainer th,
+.fedeM-tableContainer td {
+  border: 1px solid var(--fedeM-border);
+  padding: 12px 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.fedeM-tableContainer th {
+  background: #081F3E;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.fedeM-tableContainer tr:nth-child(odd) {
+  background: #fdfefe;
+}
+
+.fedeM-tableContainer tr:nth-child(even) {
+  background: #f6f8fb;
+}
+
+/* Smooth, slim scrollbar */
+.fedeM-tableContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.fedeM-tableContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.fedeM-tableContainer::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+  
+  .fedeM-clickableId {
+    color: var(--fedeM-primary);
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .fedeM-clickableId:hover {
+    text-decoration: underline;
+  }
+  
+  .fedeM-btnCell {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .fedeM-btnCell button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 12.5px;
+    font-weight: 600;
+    min-width: 70px;
+    transition: 0.2s;
+  }
+
+  .fedeM-btnCell #Edit {
+    background: #0f538b;
+  }
+
+  .fedeM-btnCell #Delete {
+    background: #ad1b1b;
+  }
+  
+  .fedeM-btnCell button:hover {
+    background: var(--fedeM-primary-dark);
+    transform: translateY(-1px);
+  }
+  
+  /* ===== Modal ===== */
+/* =========================================================
+   ⚙️ Federation Member - Delete Modal Styling
+   ========================================================= */
+
+.fedeM-modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(3px);
+}
+
+/* Modal Box */
+.fedeM-modalContent {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 14px;
+  width: 620px;
+  max-width: 90%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  animation: fadeInScale 0.25s ease-out;
+  position: relative;
+}
+
+@keyframes fadeInScale {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Title */
+.fedeM-modalContent h2 {
+  color: #104282;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* Warning Text */
+.fedeM-warningText {
+  background-color: #fff8e1;
+  color: #a06b00;
+  font-size: 0.9rem;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin: 10px 0 16px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Radio Buttons */
+.fedeM-modalContent label {
+  font-size: 0.95rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.fedeM-modalContent input[type="radio"] {
+  margin-right: 6px;
+  accent-color: #104282;
+}
+
+/* File Upload */
+.fedeM-modalContent input[type="file"] {
+  margin-left: 6px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* Proof Preview (optional if you add one later) */
+.fedeM-proofPreview img {
+  width: 100px;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* Buttons */
+.fedeM-modalBtns {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+.fedeM-modalBtns button {
+  padding: 10px 28px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.95rem;
+}
+
+/* Confirm Button */
+.fedeM-modalBtns #confirm {
+  background-color: #821010;
+  color: #fff;
+}
+
+.fedeM-modalBtns #confirm:hover {
+  background-color: #5c0b0b;
+}
+
+/* Cancel Button */
+.fedeM-modalBtns #cancel {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.fedeM-modalBtns #cancel:hover {
+  background-color: #cfcfcf;
+}
+
+/* Disabled state */
+.fedeM-modalBtns #confirm:disabled {
+  background-color: #d59e9e;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* Error Message */
+.fedeM-formError {
+  background-color: #ffeaea;
+  color: #d32f2f;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   🧭 Federation Member - Citizen Info Side Panel
+   Prefix: fedeM-
+   ========================================================= */
+.fedeM-actionsInSidebar {
+  position: absolute;
+  top: 43px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+.fedeM-actionsInSidebar button {
+  border: none;
+  border-radius: 8px;
+  padding: 3px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 50px;
+}
+
+.fedeM-editBtn {
+  background-color: #225faf;
+  color: white;
+}
+
+.fedeM-editBtn:hover {
+  background-color: #0b2f5c;
+}
+
+.fedeM-deleteBtn {
+  background-color: #b32d2d;
+  color: white;
+  border: 1px solid #b32d2d;
+}
+
+.fedeM-deleteBtn:hover {
+  background-color: #b32d2d;
+  color: white;
+}
+
+/* 📦 Main side panel container */
+.fedeM-sidePanel {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 360px;
+  height: 100vh;
+  background-color: #ffffff;
+  border-left: 4px solid #104282;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.15);
+  padding: 25px 20px;
+  z-index: 999;
+  overflow-y: auto;
+  animation: fedeM-slideIn 0.3s ease-in-out;
+}
+
+/* 📘 Header title */
+.fedeM-sidePanel h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #104282;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #104282;
+  padding-bottom: 8px;
+}
+
+/* 🖼️ Image upload section */
+.fedeM-imageUpload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9fafc;
+  border: 1px dashed #bbb;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.fedeM-imageUpload:hover {
+  background-color: #f4f8ff;
+  border-color: #104282;
+}
+
+/* ✅ Profile image preview */
+.fedeM-profilePreview {
+  width: 140px;
+  height: 140px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid #104282;
+  margin-bottom: 10px;
+}
+
+/* 🩶 Placeholder when no image */
+.fedeM-profilePlaceholder {
+  width: 140px;
+  height: 140px;
+  background-color: #e6eaf2;
+  color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+/* 📤 Upload input */
+.fedeM-imageUpload input[type="file"] {
+  font-size: 0.9rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* 🧾 Information text */
+.fedeM-sidePanel p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+  margin: 6px 0;
+}
+
+/* Strong text (labels) */
+.fedeM-sidePanel b {
+  color: #104282;
+}
+
+/* ✅ Close button */
+.fedeM-sidePanel #close {
+  width: 100%;
+  margin-top: 15px;
+  background-color: #104282;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.fedeM-sidePanel #close:hover {
+  background-color: #0b2f5c;
+}
+
+/*  */
+
+.fedeM-addToDamayanBtn {
+  background: #198754;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.fedeM-addToDamayanBtn:hover {
+  background: #044e2c;
+  transform: translateY(-1px);
+}
+
+.fedeM-statusMember {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.fedeM-statusNonMember {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+/* =========================================================
+   🧭 Sidebar Info Layout Enhancement
+   ========================================================= */
+
+.fedeM-infoDetails {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.fedeM-infoDetails h3 {
+  font-size: 1.05rem;
+  color: #104282;
+  font-weight: 700;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+.fedeM-infoDetails p {
+  margin: 4px 0;
+}
+
+.fedeM-divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 12px 0;
+}
+
+/* ✅ Damayan status badges */
+.fedeM-statusMember {
+  color: #198754;
+  font-weight: 700;
+}
+
+.fedeM-statusNonMember {
+  color: #d32f2f;
+  font-weight: 700;
+}
+
+
+/* 📱 Responsive behavior */
+@media (max-width: 768px) {
+  .fedeM-sidePanel {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    border-left: none;
+    border-top: 4px solid #104282;
+    animation: fedeM-slideUp 0.3s ease-in-out;
+  }
+}
+
+/* 🧭 Animations */
+@keyframes fedeM-slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fedeM-slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+  
+  
+  /* ===== Responsive ===== */
+  @media (max-width: 900px) {
+    .fedeM-toolbar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .fedeM-toolbarLeft {
+      justify-content: center;
+    }
+  
+    .fedeM-toolbarRight {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .fedeM-toolbarRight input[type="text"] {
+    width: 100%;
+  }
+  }
+  
+  @media (max-width: 768px) {
+    .fedeM-mainCont {
+      padding: 20px;
+    }
+  
+    .fedeM-title {
+      font-size: 22px;
+    }
+  
+    .fedeM-tableContainer th,
+    .fedeM-tableContainer td {
+      padding: 8px;
+      font-size: 13px;
+    }
+  
+    .fedeM-btnCell {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .fedeM-tableContainer table {
+      font-size: 12px;
+    }
+  }
+
+
+
+ /* ====== Add to Damayan Modal ====== */
+.fedeM-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+}
+
+.fedeM-modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: fedeM-fadeIn 0.25s ease;
+}
+
+@keyframes fedeM-fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.fedeM-modal-content h3 {
+  color: #104282;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.fedeM-modal-desc {
+  font-size: 14px;
+  color: #555;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.fedeM-confirm-details {
+  background: #f5f7ff;
+  border-left: 4px solid #104282;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.fedeM-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.fedeM-btn-confirm {
+  background: #198754;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.fedeM-btn-confirm:hover {
+  background: #06522e;
+}
+
+.fedeM-btn-cancel {
+  background: #ccc;
+  color: #333;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.fedeM-btn-cancel:hover {
+  background: #b3b3b3;
+}
+
+.fedeM-statusMsg {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.fedeM-success {
+  background: #28a745;
+  color: #fff;
+}
+
+.fedeM-error {
+  background: #dc3545;
+  color: #fff;
+}
+
+
+/* === Generate ID Button === */
+.fedeM-generateIDBtn {
+  width: 100%;
+  background-color: #0f538b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 14px;
+  box-shadow: 0 2px 4px rgba(16, 66, 130, 0.2);
+}
+
+.fedeM-generateIDBtn:hover {
+  background-color: #0b2f5c;
+  transform: translateY(-1px);
+}

@@ -1,0 +1,400 @@
+/* =========================================================
+   BASE LAYOUT
+========================================================= */
+.admin-layout {
+  display: flex;
+  background-color: #f9fafb;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+.admin-sidebar {
+  width: 260px;
+  background-color: #f8fafc; /* 🩵 light neutral blue-gray */
+  border-right: 1px solid #e5e7eb;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  z-index: 99;
+}
+
+.admin-sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.admin-sidebar.open {
+  transform: translateX(0);
+}
+
+/* Sidebar Header */
+.admin-sidebar-header {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #104282;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1.2rem 1.5rem 0.8rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+/* Sidebar List */
+.admin-sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.admin-sidebar-list li {
+  margin-bottom: 0.4rem;
+}
+
+/* =========================================================
+   STANDARD LINKS
+========================================================= */
+.admin-link {
+  text-decoration: none;
+  display: block;
+  color: #374151;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  border-left: 4px solid transparent;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+.admin-link:hover {
+  background-color: #e0e7ff;
+}
+
+.admin-link.active {
+  background-color: #e0e7ff;
+}
+
+/* =========================================================
+   DROPDOWN HEADER (Collapsible Menus)
+========================================================= */
+.admin-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-left: 4px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.admin-dropdown-header:hover {
+  background-color: #e0e7ff;
+}
+
+/* When Dropdown is Open */
+.admin-dropdown-header.open {
+  background-color: #dbeafe;
+}
+
+/* Arrow Rotation */
+.admin-dropdown-header .arrow {
+  transition: transform 0.25s ease;
+}
+
+.admin-dropdown-header .arrow.open {
+  transform: rotate(180deg);
+}
+
+/* =========================================================
+   SUBMENU LINKS
+========================================================= */
+.admin-submenu {
+  list-style: none;
+  margin-left: 1rem;
+  border-left: 2px solid #e5e7eb;
+  padding-left: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.admin-sublink {
+  text-decoration: none;
+  display: block;
+  color: #374151;
+  padding: 0.6rem 2rem;
+  font-size: 0.9rem;
+  border-left: 4px solid transparent;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+.admin-sublink:hover {
+  background-color: #eef2ff;
+}
+
+/* =========================================================
+   LOGOUT LINK
+========================================================= */
+.admin-logout {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.admin-logout:hover {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-left: 4px solid #b91c1c;
+}
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+.admin-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  background-color: #104282; /* 🟦 strong blue tone */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Sidebar Open → Topbar shifts */
+.admin-topbar.shifted {
+  left: 260px;
+  width: calc(100% - 260px);
+}
+
+/* Sidebar Closed → Full width */
+.admin-topbar.full-width {
+  left: 0;
+  width: 100%;
+}
+
+/* Topbar Left Section */
+.admin-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.admin-topbar-left h1 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1;
+}
+
+/* Toggle Button */
+.admin-toggle-btn {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.admin-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.08);
+}
+
+/* Admin User Label */
+.admin-user {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+.admin-main-content {
+  position: relative;
+  margin-top: 60px;
+  height: calc(100vh - 60px);
+  background-color: #f9fafb;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.03);
+}
+
+/* Sidebar Open */
+.admin-main-content.sidebar-open {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+}
+
+/* Sidebar Closed */
+.admin-main-content.sidebar-closed {
+  margin-left: 0;
+  width: 100%;
+}
+
+.admin-logout-btn{
+  text-align: left;
+  width: 100%;
+  border: none;
+  background: #e6a9a9;
+  
+}
+.admin-logout-btn:hover{
+  background: #b96d6d;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+@media (max-width: 992px) {
+  .admin-sidebar {
+    width: 220px;
+  }
+
+  .admin-topbar.shifted {
+    left: 220px;
+    width: calc(100% - 220px);
+  }
+
+  .admin-main-content.sidebar-open {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    position: fixed;
+    transform: translateX(-100%);
+    z-index: 200;
+    width: 220px;
+  }
+
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .admin-main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .admin-topbar.shifted {
+    left: 0;
+    width: 100%;
+  }
+
+  .admin-topbar-left h1 {
+    font-size: 1rem;
+  }
+}
+
+/* =========================================================
+   🚪 Logout Confirmation Modal Styling
+   Theme: #104282 (Deep Blue)
+   ========================================================= */
+
+.logout-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.logout-modal {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 28px 34px;
+  width: 420px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: fadeInModal 0.25s ease-in-out;
+}
+
+.logout-modal h3 {
+  color: #104282;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.logout-modal p {
+  color: #444;
+  margin-bottom: 22px;
+  font-size: 0.95rem;
+}
+
+.logout-modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.logout-confirm-btn {
+  background-color: #d62828;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  flex: 1;
+  transition: 0.2s ease;
+}
+
+.logout-confirm-btn:hover {
+  background-color: #a11616;
+}
+
+.logout-cancel-btn {
+  background-color: #6c757d;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  flex: 1;
+  transition: 0.2s ease;
+}
+
+.logout-cancel-btn:hover {
+  background-color: #565e64;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

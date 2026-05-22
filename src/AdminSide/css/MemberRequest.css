@@ -1,0 +1,747 @@
+/* =========================================================
+   🧭 Federation Member Request Dashboard
+   Prefix: fedeMR-
+   Author: ChatGPT for SeniorConnect
+   ========================================================= */
+
+/* ===== MAIN CONTAINER ===== */
+.fedeMR-container {
+  background-color: #f8f9fc;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #f6f8fb;
+  min-height: 100vh;
+}
+
+.fedeMR-summary {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.fedeMR-summaryCard {
+  flex: 1;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.fedeMR-summaryCard .label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6c757d;
+}
+
+.fedeMR-summaryCard .count {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.fedeMR-summaryCard.pending .count { color: #f0ad4e; }
+.fedeMR-summaryCard.approved .count { color: #198754; }
+.fedeMR-summaryCard.rejected .count { color: #dc3545; }
+
+
+/* ===== TITLE ===== */
+.fedeMR-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0b2f5a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fedeMR-titleAccent {
+  width: 6px;
+  height: 30px;
+  background-color: #104282;
+  border-radius: 3px;
+}
+
+.fedeMR-loading {
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+  margin-top: 40px;
+}
+
+/* ===== TABLE STYLES ===== */
+.fedeMR-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(16, 66, 130, 0.1);
+}
+
+.fedeMR-table th,
+.fedeMR-table td {
+  border: 1px solid #dee2e6;
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.fedeMR-table th {
+  background-color: #081f3e;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.fedeMR-table tr:nth-child(even) {
+  background-color: #f6f8fb;
+}
+
+.fedeMR-noData {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #6c757d;
+}
+
+/* ===== BENEFICIARY INFO ===== */
+.fedeMR-beneficiary {
+  text-align: left;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+.fedeMR-beneficiary span {
+  font-weight: 600;
+  color: #104282;
+}
+
+/* ===== HEADER TOOLBAR (Title + Summary Cards) ===== */
+.fedeMR-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* responsive for smaller screens */
+  margin-bottom: 20px;
+}
+
+.fedeMR-summary {
+  display: flex;
+  gap: 15px;
+  margin-top: 0; /* remove margin-top since it’s now inline with title */
+}
+
+/* Make summary cards uniform */
+.fedeMR-summaryCard {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  min-width: 120px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fedeMR-summaryCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(16, 66, 130, 0.2);
+}
+
+/* Small responsive tweak */
+@media (max-width: 768px) {
+  .fedeMR-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .fedeMR-summary {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .fedeMR-summaryCard {
+    min-width: 100px;
+  }
+}
+
+
+/* ===== IMAGE STYLES ===== */
+.fedeMR-clickableImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin: 3px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.fedeMR-clickableImg:hover {
+  border-color: #104282;
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   🧭 Federation Member Request Styling
+   Section: Approve/Reject Buttons + Popups
+   Author: ChatGPT (SeniorConnect Dashboard)
+   ========================================================= */
+
+/* ===== BUTTONS (Approve / Reject in Table) ===== */
+.fedeMR-approveBtn,
+.fedeMR-rejectBtn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  margin: 3px;
+}
+
+.fedeMR-approveBtn {
+  background-color: #198754;
+}
+
+.fedeMR-approveBtn:hover {
+  background-color: #157347;
+  transform: translateY(-1px);
+}
+
+.fedeMR-rejectBtn {
+  background-color: #dc3545;
+}
+
+.fedeMR-rejectBtn:hover {
+  background-color: #bb2d3b;
+  transform: translateY(-1px);
+}
+
+/* ===== POPUP OVERLAYS (Shared Base) ===== */
+.fedeMR-approvalOverlay,
+.fedeMR-rejectOverlay,
+.fedeMR-imageOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ===== APPROVAL POPUP CONTENT ===== */
+.fedeMR-approvalPopup {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 500px;
+  max-width: 90%;
+  padding: 20px 20px;
+  box-shadow: 0 6px 20px rgba(16, 66, 130, 0.15);
+  text-align: center;
+  animation: popupSlide 0.3s ease;
+}
+
+/* ===== HEADING ===== */
+.fedeMR-approvalPopup h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #104282;
+  margin-bottom: 20px;
+}
+
+/* ===== DESCRIPTION TEXT ===== */
+.fedeMR-approvalPopup p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* ===== INPUT FIELD ===== */
+.fedeMR-approvalPopup input[type="text"] {
+  width: 90%;
+  max-width: 320px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin: 0 auto 20px;
+  display: block;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.fedeMR-approvalPopup input[type="text"]:focus {
+  border-color: #104282;
+}
+
+/* ===== BUTTON ACTIONS ===== */
+.fedeMR-popupActions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.fedeMR-popupActions button {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Confirm Button */
+.fedeMR-popupActions #approve {
+  background-color: #198754;
+  color: #fff;
+}
+
+.fedeMR-popupActions #approve {
+  background-color: #157347;
+  transform: translateY(-1px);
+}
+
+/* Cancel Button */
+.fedeMR-popupActions button:last-child {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.fedeMR-popupActions button:last-child:hover {
+  background-color: #5c636a;
+  transform: translateY(-1px);
+}
+
+/* Disabled state for buttons */
+.fedeMR-popupActions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popupSlide {
+  from {
+    transform: translateY(-25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== RESPONSIVENESS ===== */
+@media (max-width: 480px) {
+  .fedeMR-approvalPopup {
+    width: 90%;
+    padding: 25px 15px;
+  }
+
+  .fedeMR-popupActions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .fedeMR-popupActions button {
+    width: 100%;
+  }
+}
+
+
+/* ===== REJECTION POPUP OVERLAY ===== */
+.fedeMR-rejectOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ===== REJECTION POPUP CONTAINER ===== */
+.fedeMR-rejectPopup {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 500px;
+  padding: 28px 30px;
+  box-shadow: 0 6px 20px rgba(16, 66, 130, 0.15);
+  text-align: center;
+  animation: popupSlide 0.3s ease;
+}
+
+/* Title */
+.fedeMR-rejectPopup h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #dc3545;
+  margin-bottom: 12px;
+}
+
+/* Info text (optional) */
+.fedeMR-rejectPopup p {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* ===== RADIO GROUP ===== */
+.fedeMR-radioGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.fedeMR-radioOption {
+  font-size: 14px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.fedeMR-radioOption:hover {
+  color: #dc3545;
+}
+
+.fedeMR-radioOption input[type="radio"] {
+  accent-color: #dc3545;
+  cursor: pointer;
+}
+
+/* ===== TEXTAREA (for "Other") ===== */
+.fedeMR-customTextarea {
+  width: 90%;
+  height: 80px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 13px;
+  resize: none;
+  outline: none;
+  margin-bottom: 20px;
+  transition: border-color 0.2s ease;
+}
+
+.fedeMR-customTextarea:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.1);
+}
+
+/* ===== BUTTONS ===== */
+.fedeMR-popupActions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.fedeMR-popupActions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Confirm Reject Button */
+.fedeMR-popupActions #reject {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.fedeMR-popupActions #reject {
+  background-color: #bb2d3b;
+  transform: translateY(-1px);
+}
+
+/* Cancel Button */
+.fedeMR-popupActions button:last-child {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.fedeMR-popupActions button:last-child:hover {
+  background-color: #5c636a;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popupSlide {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+
+/* === SEARCH BAR === */
+.fedeMR-searchBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(16, 66, 130, 0.1);
+  width: 420px;
+  margin-top: 10px;
+}
+
+.fedeMR-searchBar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 8px;
+  color: #333;
+}
+
+.fedeMR-searchBar #search {
+  color: black;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 45px
+}
+
+.fedeMR-searchBar button:hover {
+  background: #0b2f5a;
+}
+
+/* === SEARCH RESULTS TABLE === */
+.fedeMR-searchResults {
+  margin-top: 25px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  padding: 20px;
+}
+
+.fedeMR-searchResults h3 {
+  color: #104282;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.fedeMR-searchResults table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fedeMR-searchResults th,
+.fedeMR-searchResults td {
+  padding: 10px 8px;
+  border: 1px solid #dee2e6;
+  text-align: center;
+  font-size: 14px;
+}
+
+.fedeMR-searchResults th {
+  background: #104282;
+  color: white;
+}
+
+/* ===== SEARCH OVERLAY ===== */
+.fedeMR-searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ===== SEARCH POPUP BOX ===== */
+.fedeMR-searchPopup {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 20px;
+  width: 800px;
+  max-height: 65vh; /* limits popup height */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 25px rgba(16, 66, 130, 0.2);
+  animation: popupSlide 0.3s ease;
+  color: #333;
+}
+
+/* Header */
+.fedeMR-searchPopup h3 {
+  font-size: 22px;
+  color: #104282;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.fedeMR-noteText {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.fedeMR-resultsScroll {
+  flex-grow: 1;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Table styling */
+.fedeMR-resultsScroll table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fedeMR-resultsScroll th,
+.fedeMR-resultsScroll td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.fedeMR-resultsScroll th {
+  background: #104282;
+  color: white;
+  position: sticky;
+  top: 0; /* keeps table header fixed */
+  z-index: 2;
+}
+
+
+/* Description */
+.fedeMR-searchPopup p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Results table */
+.fedeMR-resultsContainer {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.fedeMR-resultsContainer table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fedeMR-resultsContainer th,
+.fedeMR-resultsContainer td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.fedeMR-resultsContainer th {
+  background: #104282;
+  color: white;
+  font-weight: 600;
+}
+
+/* Popup buttons */
+.fedeMR-popupActions {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.fedeMR-popupActions button {
+  background: #104282;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fedeMR-popupActions button:hover {
+  background: #0c3265;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popupSlide {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* No results message */
+.fedeMR-noResult {
+  padding: 40px 20px;
+  text-align: center;
+  color: #555;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.fedeMR-noResult p {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+

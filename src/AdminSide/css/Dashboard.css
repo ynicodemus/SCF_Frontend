@@ -1,0 +1,832 @@
+/* =========================================================
+   PROFESSIONAL DASHBOARD STYLES (UPDATED FOR FINAL DASHBOARD)
+   Replaces and extends the CSS you pasted — includes:
+   - admindb-card / admindb-cards used by the component
+   - admindb-table for recent requests
+   - consistent color, spacing, responsive rules
+========================================================= */
+
+:root{
+  --bg-1: #f8fafc;
+  --bg-2: #f3f4f6;
+  --card-bg: #ffffff;
+  --muted: #6b7280;
+  --text: #0f172a;
+  --accent-blue: #2563eb;
+  --accent-light: #eaf6ff;
+  --danger: #f03e3e;
+  --success: #10b981;
+}
+
+/* Page container */
+.admindb-container {
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  min-height: calc(100vh - 60px);
+  font-family: "Poppins", "Inter", sans-serif;
+  color: var(--text);
+  padding: 20px;
+}
+
+/* Header / hero */
+.admindb-header {
+  margin-bottom: 18px;
+}
+.admindb-header.admindb-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #1d4ed8, #2563eb);
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.12);
+}
+.admindb-header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: inherit;
+}
+.admindb-subtitle {
+  margin: 4px 0 0 0;
+  font-size: 0.92rem;
+  opacity: 0.95;
+}
+.admindb-header-line {
+  border: none;
+  height: 3px;
+  background-color: #104282;
+  border-radius: 2px;
+  width: 100%;
+  margin: 8px 0 0 0;
+}
+
+/* ===== SUMMARY CARDS (used by Dashboard) ===== */
+.admindb-cards {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.admindb-card, .admindb-stat-card {
+  background: var(--card-bg);
+  border: 1px solid #e6edf8;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 6px 12px rgba(15,23,42,0.04);
+  min-width: 160px;
+  flex: 1 1 200px;
+  transition: transform .18s ease, box-shadow .18s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.admindb-card:hover, .admindb-stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(15,23,42,0.06);
+}
+
+/* card content */
+.card-title, .admindb-card .card-title, .admindb-card .card-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+.card-value, .admindb-card .card-value, .admindb-stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* small helper for accent value (currency) */
+.card-value-small {
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+
+.admindb-chart-section {
+  flex: 1 1 480px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid #e6edf8;
+  padding: 16px;
+  box-shadow: 0 6px 14px rgba(15,23,42,0.04);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.admindb-chart-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15,23,42,0.06);
+}
+.admindb-chart-section h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  position: relative;
+}
+.admindb-chart-section h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 46px;
+  height: 4px;
+  background: linear-gradient(90deg,var(--accent-blue),#1d4ed8);
+  border-radius: 3px;
+}
+
+/* total fund box */
+.admindb-totalfund-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 260px;
+  text-align: center;
+}
+.admindb-totalfund-amount {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f59f00;
+}
+.admindb-totalfund-label { color: var(--muted); }
+
+/* recent events list */
+.admindb-recent-events {
+  background: var(--card-bg);
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #e6edf8;
+  box-shadow: 0 6px 12px rgba(15,23,42,0.03);
+  margin-bottom: 16px;
+}
+.admindb-recent-events ul { list-style: none; margin: 0; padding: 0; }
+.admindb-recent-events li {
+  display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid #f1f5f9;
+}
+.admindb-recent-events li:last-child { border-bottom:none; }
+
+/* top barangays layout */
+.admindb-barangay-grid { display:flex; gap:24px; margin-top:18px; flex-wrap:wrap; }
+.admindb-barangay-grid .wide { flex: 0 0 70%; }
+.admindb-barangay-grid .narrow { flex: 0 0 30%; }
+
+/* ===== RECENT REQUESTS TABLE ===== */
+.admindb-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border: 1px solid #e6edf8;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(15,23,42,0.02);
+}
+.admindb-table thead {
+  background: linear-gradient(90deg,#eef6ff,#f8fbff);
+}
+.admindb-table th, .admindb-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.admindb-table th {
+  font-weight: 600;
+  color: #0f172a;
+}
+.admindb-table tbody tr:hover {
+  background: rgba(37,99,235,0.03);
+}
+
+/* table small states */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+}
+.badge-pending { background: #f59e0b; }
+.badge-approved { background: #10b981; }
+.badge-rejected { background: #f03e3e; }
+
+/* ===== YEAR DROPDOWN (used in chart header) ===== */
+.year-dropdown-container {
+  position: relative;
+  margin-left: auto;
+}
+.year-dropdown-btn {
+  background: var(--accent-blue);
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.year-dropdown-btn:hover { background: #1d4ed8; }
+.year-dropdown-menu {
+  position: absolute;
+  right: 0; top: 42px;
+  background: white; border: 1px solid #ddd;
+  border-radius: 8px; width: 140px; display: none;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08); z-index: 12;
+}
+.year-dropdown-container:hover .year-dropdown-menu { display:block; }
+.year-dropdown-item { padding: 10px; cursor: pointer; }
+.year-dropdown-item:hover { background:#f3f4f6; }
+
+/* ===== SMALL UTILITIES ===== */
+.flex-row { display:flex; align-items:center; gap:12px; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .admindb-chart-row, .admindb-cards, .admindb-barangay-grid { flex-direction: column; }
+  .admindb-chart-section, .admindb-card, .admindb-stat-card { flex: 0 0 100%; }
+  .admindb-barangay-grid .wide, .admindb-barangay-grid .narrow { flex: 0 0 100%; }
+  .year-dropdown-menu { right: 8px; left: auto; }
+}
+
+/* subtle entrance animation */
+@keyframes admindb-fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.admindb-animated { animation: admindb-fade-up 0.45s ease both; }
+
+/* small accessibility / focus */
+.button, button { outline: none; }
+button:focus, .year-dropdown-item:focus { box-shadow: 0 0 0 3px rgba(37,99,235,0.12); border-radius: 6px; }
+
+/* ===== FINAL TWEAKS: existing duplicate rules were consolidated above ===== */
+.admindb-container {
+  background: linear-gradient(180deg, #f8fafc 0%, #f3f4f6 100%);
+  min-height: calc(100vh - 60px);
+  font-family: "Poppins", sans-serif;
+  color: #1f2937;
+}
+
+/* HERO HEADER */
+.admindb-header.admindb-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.12);
+  margin-bottom: 1.5rem;
+}
+
+.admindb-header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.admindb-subtitle {
+  margin: 4px 0 0 0;
+  font-size: 0.92rem;
+  opacity: 0.92;
+}
+
+/* STATS ROW */
+.admindb-stats-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.admindb-stat-card {
+  background: #ffffff;
+  border: 1px solid #e6edf8;
+  border-radius: 12px;
+  flex: 1 1 260px;
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(15,23,42,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  min-width: 180px;
+}
+
+.admindb-stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(15,23,42,0.08);
+}
+
+.admindb-stat-icon {
+  font-size: 1.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(59,130,246,0.08);
+  color: #1d4ed8;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.admindb-stat-value {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 0.25rem;
+}
+
+.admindb-stat-label {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+
+.admindb-chart-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15,23,42,0.06);
+}
+
+.admindb-chart-section h3 {
+  margin: 0 0 1rem 0;
+  color: #0f172a;
+  font-size: 1.05rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.admindb-chart-section h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 46px;
+  height: 4px;
+  background: linear-gradient(90deg,#1d4ed8,#2563eb);
+  border-radius: 3px;
+}
+
+/* Total Fund Box */
+.admindb-totalfund-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 260px;
+}
+
+.admindb-totalfund-amount {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f59f00;
+}
+
+.admindb-totalfund-label {
+  color: #6b7280;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* RECENT EVENTS */
+.admindb-recent-events {
+  background: #fff;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid #e6edf8;
+  box-shadow: 0 6px 12px rgba(15,23,42,0.03);
+  margin-bottom: 1.75rem;
+}
+
+.admindb-recent-events h3 {
+  margin: 0 0 0.6rem 0;
+  color: #0f172a;
+  font-size: 1.05rem;
+}
+
+.admindb-recent-events ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admindb-recent-events li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f1f5f9;
+  color: #111827;
+}
+
+.admindb-recent-events li:last-child {
+  border-bottom: none;
+}
+
+/* BARANGAY GRID 70/30 */
+.admindb-barangay-grid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.admindb-barangay-grid .wide {
+  flex: 0 0 70%;
+}
+
+.admindb-barangay-grid .narrow {
+  flex: 0 0 30%;
+}
+
+.admindb-container {
+  background: linear-gradient(180deg, #f8fafc 0%, #f3f4f6 100%);
+  min-height: calc(100vh - 60px);
+  font-family: "Poppins", sans-serif;
+  color: #1f2937;
+}
+
+/* HEADER */
+.admindb-header.admindb-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #1d4ed8, #2563eb);
+  color: #fff;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.12);
+  margin-bottom: 1.5rem;
+}
+
+.admindb-header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.admindb-subtitle {
+  margin: 4px 0 0 0;
+  font-size: 0.92rem;
+  opacity: 0.92;
+}
+
+/* STATS */
+.admindb-stats-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.admindb-stat-card {
+  background: #fff;
+  border: 1px solid #e6edf8;
+  border-radius: 12px;
+  flex: 1 1 260px;
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(15,23,42,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.admindb-stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(15,23,42,0.08);
+}
+
+.admindb-stat-icon {
+  font-size: 1.8rem;
+  background: rgba(59,130,246,0.08);
+  color: #1d4ed8;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.admindb-stat-value {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.admindb-stat-label {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+
+.admindb-chart-section h3 {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+  position: relative;
+}
+
+.admindb-chart-section h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 40px;
+  height: 3px;
+  background: #2563eb;
+  border-radius: 3px;
+}
+
+/* TOTAL FUND */
+.admindb-totalfund-box {
+  text-align: center;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.admindb-totalfund-amount {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f59f00;
+}
+
+.admindb-totalfund-label {
+  color: #6b7280;
+}
+
+/* RECENT EVENTS */
+.admindb-recent-events {
+  background: #fff;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid #e6edf8;
+  box-shadow: 0 6px 12px rgba(15,23,42,0.03);
+  margin-bottom: 2rem;
+}
+
+.admindb-recent-events h3 {
+  margin-bottom: 0.6rem;
+  color: #0f172a;
+}
+
+.admindb-recent-events ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admindb-recent-events li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.admindb-recent-events li:last-child {
+  border-bottom: none;
+}
+
+/* BARANGAY CHARTS (STACKED) */
+.admindb-barangay-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* =========================================================
+   CLEAN HEADER STYLE
+========================================================= */
+.admindb-header {
+  margin-bottom: 1.5rem;
+}
+
+.admindb-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.admindb-header-line {
+  border: none;
+  height: 3px;
+  background-color: #104282;
+  border-radius: 2px;
+  width: 100%;
+  margin: 0;
+}
+
+
+.year-dropdown-container {
+  position: relative;
+  margin-left: auto;
+}
+
+.year-dropdown-btn {
+  background: #2563eb;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: small;
+  cursor: pointer;
+
+}
+
+.year-dropdown-btn:hover {
+  background: #1d4ed8;
+}
+
+.year-dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 130px;
+  display: none;
+  box-shadow: 0px 4px 14px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.year-dropdown-container:hover .year-dropdown-menu {
+  display: block;
+}
+
+.year-dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.year-dropdown-item:hover {
+  background: #f3f4f6;
+}
+
+
+@media (max-width: 992px) {
+  .admindb-chart-row {
+    flex-direction: column;
+  }
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .admindb-chart-section, .admindb-stat-card {
+    flex: 0 0 100%;
+  }
+
+  .admindb-barangay-grid {
+    flex-direction: column;
+  }
+
+  .admindb-barangay-grid .wide,
+  .admindb-barangay-grid .narrow {
+    flex: 0 0 100%;
+  }
+}
+
+/* subtle entrance animation */
+@keyframes admindb-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.admindb-animated {
+  animation: admindb-fade-up 0.45s ease both;
+}
+
+
+
+/* ============== ACTIVITY & INSIGHTS (FINAL DEFENSE) ============== */
+
+.admindb-activity {
+  margin-bottom: 1.2rem;
+}
+
+.admindb-activity-title {
+  margin: 0 0 0.4rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.admindb-activity-empty {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.admindb-activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 210px;
+  overflow-y: auto;
+}
+
+.admindb-activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px dashed #e5e7eb;
+  font-size: 0.9rem;
+}
+
+.admindb-activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin-top: 6px;
+}
+
+.activity-request { background: #2563eb; }
+.activity-claim   { background: #f97316; }
+.activity-event   { background: #10b981; }
+
+.activity-main {
+  flex: 1;
+}
+
+.activity-label {
+  font-weight: 600;
+  color: #111827;
+}
+
+.activity-detail {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.activity-time {
+  font-size: 0.78rem;
+  text-align: right;
+  color: #9ca3af;
+}
+
+/* Insights box */
+
+.admindb-insights {
+  padding-top: 0.4rem;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 0.6rem;
+}
+
+.admindb-insights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.3rem 0 0 0;
+}
+
+.admindb-insight-item {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  font-size: 0.85rem;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.insight-bullet {
+  font-size: 1rem;
+  color: #2563eb;
+  line-height: 1;
+}
+
+/* scrollbars para sa activity list (optional, subtle) */
+.admindb-activity-list::-webkit-scrollbar {
+  width: 5px;
+}
+.admindb-activity-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.admindb-activity-list::-webkit-scrollbar-thumb {
+  background: #cbd5f5;
+  border-radius: 999px;
+}
+
+/* ensure chart sections can grow and have a sensible min width so bars don't squeeze */
+.admindb-chart-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+}
+
+/* when container is small, keep stacking but allow bigger charts on wide screens */
+@media (min-width: 1200px) {
+  .admindb-chart-section.wide-chart {
+    flex: 0 0 62%; /* make a 'wide' chart option take ~62% width */
+    min-width: 760px; /* big screens: give a lot of width */
+  }
+  .admindb-chart-section.narrow-chart {
+    flex: 0 0 36%;
+    min-width: 380px;
+  }
+}

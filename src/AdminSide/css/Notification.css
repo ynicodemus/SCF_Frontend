@@ -1,0 +1,60 @@
+.AdminNotifCont {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 18px #dde6ff6e;
+    border: 1.2px solid #e3e7f0;
+    padding: 28px 30px 18px 30px;
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto 40px auto;
+  }
+  
+  .NotifHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  
+  .NotifHeader h3 {
+    color: #1976d2;
+    font-size: 1.13rem;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    margin: 0;
+  }
+  
+  .NotifEmpty {
+    color: #9fa9bb;
+    font-style: italic;
+    padding: 16px 0 10px 0;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .NotifList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .NotifItem {
+    padding: 11px 0 7px 0;
+    border-bottom: 1px solid #e9eff8;
+  }
+  
+  .NotifItem:last-child {
+    border-bottom: none;
+  }
+  
+  .NotifMsg {
+    font-size: 1.04rem;
+    color: #222a35;
+  }
+  
+  .NotifDate {
+    color: #6b7280;
+    font-size: 0.93rem;
+    margin-top: 2px;
+    font-style: italic;
+  }
+  

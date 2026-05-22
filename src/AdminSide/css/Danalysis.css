@@ -1,0 +1,101 @@
+:root {
+  --dana-bg: #f4faff;
+  --dana-accent: #60a8f6;
+  --dana-card: #ffffff;
+  --dana-card-border: #d2e6fa;
+  --dana-dark: #274f6d;
+  --dana-green: #3cb371;
+  --dana-blue: #82ca9d;
+  --dana-shadow: 0 2px 14px rgba(95, 157, 230, 0.08);
+}
+
+.DAnalysisCont {
+  background: var(--dana-bg);
+  border-radius: 18px;
+  padding: 40px 24px 32px 24px;
+  max-width: 1000px;
+  margin: 40px auto;
+  box-shadow: var(--dana-shadow);
+  font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+}
+
+.DAnalysisCont h2 {
+  color: var(--dana-dark);
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+  font-size: 2.1rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+.da-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.da-card {
+  background: var(--dana-card);
+  border-radius: 14px;
+  padding: 32px 28px 24px 28px;
+  min-width: 230px;
+  box-shadow: var(--dana-shadow);
+  border: 1px solid var(--dana-card-border);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.da-card h3 {
+  color: var(--dana-accent);
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+  font-size: 1.22rem;
+}
+
+.da-value {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--dana-green);
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+
+.da-row select {
+  background: #fff;
+  color: var(--dana-dark);
+  font-size: 1.1rem;
+  font-family: inherit;
+  border: 1px solid var(--dana-card-border);
+  border-radius: 7px;
+  padding: 6px 12px;
+  box-shadow: 0 2px 6px rgba(130,202,157,0.07);
+  outline: none;
+  margin-left: 8px;
+  transition: border 0.2s;
+}
+.da-row select:focus {
+  border: 1.5px solid var(--dana-accent);
+}
+
+.da-row label {
+  font-size: 1rem;
+}
+
+@media (max-width: 850px) {
+  .DAnalysisCont {
+    padding: 18px 6px 18px 6px;
+  }
+  .da-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .da-card {
+    padding: 20px 12px;
+    min-width: unset;
+    align-items: stretch;
+  }
+}

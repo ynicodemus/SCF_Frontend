@@ -1,0 +1,369 @@
+/* =========================================================
+   📅 SeniorConnect Event Calendar - Professional Design
+   Prefix: sc-
+   Theme: Deep Blue (#104282)
+   Author: ChatGPT
+   ========================================================= */
+
+/* 🌐 Base Container */
+.sc-calendar-container {
+  border-radius: 12px;
+  font-family: "Inter", "Poppins", sans-serif;
+  color: #333;
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+/* 🏷 Title */
+.sc-calendar-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #104282;
+  border-left: 4px solid #104282;
+  padding-left: 12px;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+/* 🧭 Calendar Box */
+.sc-calendar-box {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(16, 66, 130, 0.08);
+}
+
+/* 🗓 Calendar Widget Overrides */
+.sc-calendar {
+  border: none !important;
+  width: 100%;
+  max-width: 600px;
+  font-family: "Inter", sans-serif;
+}
+
+.react-calendar__tile {
+  border-radius: 8px !important;
+  padding: 14px 6px !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.react-calendar__tile--now {
+  background: #10428220 !important;
+  border: 1px solid #10428230;
+}
+
+.react-calendar__tile--active {
+  background: #104282 !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.react-calendar__tile:hover {
+  background-color: #eaf0fb !important;
+  color: #104282 !important;
+}
+
+/* 🎯 Event Mark Indicator */
+.sc-event-mark {
+  width: 6px;
+  height: 6px;
+  background-color: #104282;
+  border-radius: 50%;
+  margin: 3px auto 0;
+}
+
+/* 📅 Selected Date Text */
+.sc-calendar-selected {
+  margin-top: 20px;
+  text-align: center;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* 🧩 Message States */
+.sc-calendar-message {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.1rem;
+  color: #104282;
+}
+
+.sc-calendar-error {
+  color: #d62828;
+}
+
+/* ================================
+   🎟 Event Modal
+   ================================ */
+.sc-event-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.sc-event-modal {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px 30px;
+  width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.3s ease;
+}
+
+/* ✨ Title inside modal */
+.sc-event-modal-title {
+  color: #104282;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  border-left: 4px solid #104282;
+  padding-left: 10px;
+}
+
+/* 📋 Event details */
+.sc-event-details {
+  margin-top: 10px;
+}
+
+.sc-event-item {
+  background-color: #f8fbff;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #e2e9f3;
+  margin-bottom: 12px;
+}
+
+.sc-event-item p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+.sc-event-desc {
+  background: #eaf0fb;
+  padding: 8px;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+/* 🧭 Close Button */
+.sc-event-close-btn {
+  color: #104282;
+  font-weight: 600;
+  width: 10px;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 1px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  transition: background-color 0.2s ease;
+}
+
+.sc-event-close-btn:hover {
+  background-color: #0d376e;
+}
+
+/* Wrap calendar + upcoming */
+.sc-main-wrapper {
+  transition: margin-right 0.3s ease;
+}
+
+/* Move left when side panel is open */
+.sc-main-wrapper.panel-open {
+  margin-right: 360px; /* must match panel width */
+}
+
+/* Responsive (mobile) behavior */
+@media (max-width: 900px) {
+  .sc-main-wrapper.panel-open {
+    margin-right: 0;
+  }
+
+  .sc-sidepanel {
+    width: 100%;
+    right: -100%;
+  }
+
+  .sc-sidepanel.open {
+    right: 0;
+  }
+}
+
+
+/* ===========================================
+   📌 Upcoming Events Section
+   =========================================== */
+
+   .sc-upcoming-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #104282;
+    margin-top: 25px;
+    border-left: 4px solid #104282;
+    padding-left: 10px;
+  }
+  
+  .sc-no-upcoming {
+    margin-top: 10px;
+    color: #777;
+    text-align: center;
+  }
+  
+  .sc-upcoming-list {
+    margin-top: 15px;
+    display: grid;
+    gap: 12px;
+  }
+  
+  .sc-upcoming-card {
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 10px;
+    border: 1px solid #dbe4f3;
+    box-shadow: 0 4px 10px rgba(16, 66, 130, 0.08);
+    transition: 0.2s ease;
+  }
+  
+  .sc-upcoming-card:hover {
+    background: #f2f6ff;
+    transform: translateY(-2px);
+  }
+  
+  .sc-upcoming-date {
+    font-weight: 600;
+    color: #104282;
+    margin-bottom: 5px;
+  }
+  
+  .sc-upcoming-title-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .sc-upcoming-where {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* ===================== SIDE PANEL ===================== */
+.sc-sidepanel {
+  position: fixed;
+  top: 60px;
+  right: -400px; /* hidden by default */
+  width: 400px;
+  height: 100vh;
+  background: white;
+  box-shadow: -4px 0px 12px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease-in-out;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+.sc-sidepanel.open {
+  right: 0; /* slide in */
+}
+
+.sc-sidepanel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #04244d;
+  background: #104282;
+  color: #104282(70, 65, 65);
+}
+
+.sc-sidepanel-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.sc-sidepanel-content {
+  padding: 18px 20px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.sc-sidepanel-item {
+  margin-bottom: 15px;
+}
+
+.sc-event-desc {
+  padding: 10px;
+  background: #f4f7fc;
+  border-radius: 5px;
+}
+
+.sc-sidepanel-item hr {
+  border: none;
+  height: 1px;
+  background: #e2e2e2;
+  margin: 10px 0;
+}
+
+/* Sidepanel Banner */
+.sc-sidepanel-banner {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.sc-sidepanel-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Adjust header spacing because of banner */
+.sc-sidepanel-header {
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #ffffff;
+  position: sticky;
+  top: 140px; /* stays below banner */
+  z-index: 5;
+}
+
+
+
+/* 🌀 Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .sc-event-modal {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .sc-calendar-container {
+    padding: 20px;
+  }
+
+  .sc-calendar-title {
+    font-size: 1.3rem;
+  }
+}

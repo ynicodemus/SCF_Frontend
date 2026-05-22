@@ -1,0 +1,691 @@
+/* =========================================================
+   📋 Damayan Member Request Page
+   Prefix: damaMR-
+   Author: ChatGPT (for your SeniorConnect Dashboard)
+   ========================================================= */
+
+:root {
+  --damaMR-primary: #104282;
+  --damaMR-success: #2e8b57;
+  --damaMR-danger: #d9534f;
+  --damaMR-gray: #f3f4f6;
+  --damaMR-text: #333;
+}
+
+/* =============================
+   PAGE STRUCTURE
+============================= */
+.damaMR-container {
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", sans-serif;
+}
+
+.damaMR-title {
+  font-size: 1.6rem;
+  color: var(--damaMR-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.damaMR-title-accent {
+  display: inline-block;
+  width: 6px;
+  height: 24px;
+  background: var(--damaMR-primary);
+  border-radius: 3px;
+}
+
+/* =============================
+   TABLE DESIGN
+============================= */
+.damaMR-table-container {
+  overflow-x: auto;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.damaMR-member-request-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.damaMR-member-request-table th {
+  background: var(--damaMR-primary);
+  color: white;
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.damaMR-member-request-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eaeaea;
+  color: var(--damaMR-text);
+  font-size: 0.9rem;
+}
+
+.damaMR-member-request-table tr:hover {
+  background: #f5f8ff;
+  transition: 0.3s;
+}
+
+.damaMR-no-data {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  font-style: italic;
+}
+
+/* =============================
+   BUTTON STYLES
+============================= */
+.damaMR-btn {
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.damaMR-btn-outline {
+  border: 1px solid var(--damaMR-primary);
+  background: transparent;
+  color: var(--damaMR-primary);
+}
+
+.damaMR-btn-outline:hover {
+  background: var(--damaMR-primary);
+  color: white;
+}
+
+.damaMR-btn-success {
+  background: var(--damaMR-success);
+  color: white;
+}
+
+.damaMR-btn-success:hover {
+  opacity: 0.9;
+}
+
+.damaMR-btn-danger {
+  background: var(--damaMR-danger);
+  color: white;
+}
+
+.damaMR-btn-danger:hover {
+  opacity: 0.9;
+}
+
+.damaMR-action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* =============================
+   STATUS MESSAGE
+============================= */
+.damaMR-status-message {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.damaMR-success {
+  background: #dff0d8;
+  color: #3c763d;
+  border: 1px solid #b2d8a9;
+}
+
+.damaMR-error {
+  background: #f2dede;
+  color: #a94442;
+  border: 1px solid #e6b0aa;
+}
+
+/* =============================
+   LOADING STATE
+============================= */
+.damaMR-loading-overlay {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: var(--damaMR-primary);
+}
+
+.damaMR-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ddd;
+  border-top: 3px solid var(--damaMR-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =============================
+   MODAL
+============================= */
+.damaMR-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.damaMR-modal-content {
+  color: black;
+  background: #fff;
+  border-radius: 12px;
+  width: 450px;
+  max-height: 100vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.damaMR-modal-content div {
+  margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.damaMR-modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+/* =============================
+   CONFIRM BOX
+============================= */
+.damaMR-confirm-box {
+  margin-top: 1rem;
+  background: var(--damaMR-gray);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.damaMR-confirm-box p {
+  margin-bottom: 0.7rem;
+  color: #444;
+}
+
+.damaMR-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.damaMR-reject-box {
+  border-left: 4px solid var(--damaMR-danger);
+}
+
+/* =============================
+   REJECT FORM
+============================= */
+.damaMR-reject-select,
+.damaMR-reject-input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.damaMR-reject-input {
+  margin-top: 0.6rem;
+}
+
+/* =============================
+   SCROLLBAR
+============================= */
+.damaMR-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.damaMR-modal-content::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 10px;
+}
+
+.damaMR-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* =========================================================
+   💚 Damayan Member Request Modal & Table Styles
+   Prefix: damaMR-
+   ========================================================= */
+
+/* Overlay */
+.damaMR-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(60, 60, 60, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* Modal */
+.damaMR-modal-content {
+  background: #ffffff;
+  border-radius: 10px;
+  width: 95%;
+  max-width: 420px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  text-align: left;
+  animation: fadeIn 0.25s ease-in-out;
+  color: #144b1a; /* deep green text */
+}
+
+.damaMR-modal-content h3 {
+  color: #104b1e;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #cde2c9;
+  padding-bottom: 0.4rem;
+}
+
+/* Info lines */
+.damaMR-modal-content div {
+  margin: 0.25rem 0;
+  color: #144b1a;
+  font-size: 0.95rem;
+}
+
+.damaMR-modal-content b {
+  color: #0e3d12;
+  font-weight: 600;
+}
+
+.damaMR-modal-content #H3 {
+  margin-top: -3px;
+}
+
+.damaMR-modal-content button {
+  margin-top: 15px;
+}
+
+/* Buttons container */
+.damaMR-modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+
+/* Buttons Base */
+.damaMR-btn {
+  padding: 0.45rem 1.1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Button Variants */
+.damaMR-btn-success {
+  background-color: #2f8f2f;
+  color: #fff;
+}
+.damaMR-btn-success:hover {
+  background-color: #277627;
+}
+
+.damaMR-btn-danger {
+  background-color: #d9534f;
+  color: #fff;
+}
+.damaMR-btn-danger:hover {
+  background-color: #c9443e;
+}
+
+.damaMR-btn-outline {
+  background: transparent;
+  border: 1.8px solid #123812;
+  color: #123812;
+}
+.damaMR-btn-outline:hover {
+  background: #f2f6f2;
+}
+
+/* Table area */
+.damaMR-table-container {
+  margin-top: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.damaMR-member-request-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.damaMR-member-request-table td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.damaMR-member-request-table tr:hover {
+  background-color: #f9faf9;
+}
+
+.damaMR-no-data {
+  text-align: center;
+  color: #666;
+  padding: 1rem;
+}
+
+/* Status message */
+.damaMR-status-message {
+  margin-top: 0.8rem;
+  padding: 0.6rem;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+}
+.damaMR-status-message.success {
+  background: #e5f7e5;
+  color: #216d21;
+}
+.damaMR-status-message.error {
+  background: #fde8e8;
+  color: #b3261e;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    transform: scale(0.97);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* Header Layout */
+.damaMR-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+/* Search Box */
+.damaMR-search-box {
+  position: relative;
+}
+
+.damaMR-search-input {
+  padding: 0.45rem 0.8rem;
+  border: 1.8px solid #155d20;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: 240px;
+  transition: 0.2s;
+}
+
+.damaMR-search-input:focus {
+  outline: none;
+  border-color: #2b8229;
+  box-shadow: 0 0 4px rgba(43, 130, 41, 0.3);
+}
+
+/* Dropdown results */
+.damaMR-search-results {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  z-index: 20;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.damaMR-result-item {
+  padding: 0.4rem 0.7rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.damaMR-result-item:hover {
+  background: #eef9ee;
+}
+
+.damaMR-search-loading,
+.damaMR-search-results.no-match {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  background: #fff;
+  color: #666;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 100%;
+  text-align: center;
+}
+
+/* 🔍 Search Header */
+.damaMR-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.damaMR-search {
+  width: 280px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.damaMR-search:focus {
+  outline: none;
+  border-color: #104282;
+  box-shadow: 0 0 0 2px rgba(16, 66, 130, 0.2);
+}
+
+/* 🔍 Modern Search Bar */
+.damaMR-searchWrapper {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 0.3rem 0.4rem;
+  width: 320px;
+  transition: all 0.25s ease;
+}
+
+.damaMR-searchWrapper:focus-within {
+  box-shadow: 0 0 0 3px rgba(16, 66, 130, 0.25);
+  transform: scale(1.02);
+}
+
+.damaMR-searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  color: #104282;
+  font-family: inherit;
+}
+
+.damaMR-searchInput::placeholder {
+  color: #777;
+}
+
+.damaMR-searchBtn {
+  border: none;
+  background: #f6f8fb;
+  color: #104282;
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+  width: 50px;
+}
+
+.damaMR-searchBtn:hover {
+  background: #e1e8f5;
+}
+
+/* 🔍 Search result message */
+.damaMR-search-result {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  animation: fadeIn 0.3s ease;
+  text-align: left;
+}
+
+.damaMR-search-result.success {
+  background-color: #e6f9ed;
+  border: 1px solid #24a148;
+  color: #145c2a;
+}
+
+.damaMR-search-result.error {
+  background-color: #fdeaea;
+  border: 1px solid #d93025;
+  color: #7d0000;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔍 Search Result Modal Styling */
+.damaMR-search-modal {
+  max-width: 750px;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.damaMR-search-title {
+  color: #104282;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.damaMR-search-table-container {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+}
+
+.damaMR-search-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.damaMR-search-table th {
+  background-color: #104282;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.damaMR-search-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.damaMR-search-table tr:hover {
+  background-color: #f6f9ff;
+  transition: 0.2s ease;
+}
+
+.damaMR-modal-actions {
+  margin-top: 20px;
+}
+
+.damaMR-modal-actions button {
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: 1px solid #104282;
+  color: #104282;
+  background-color: #fff;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.damaMR-modal-actions button:hover {
+  background-color: #104282;
+  color: #fff;
+}

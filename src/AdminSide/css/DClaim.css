@@ -1,0 +1,294 @@
+/* =========================================================
+   ⚰️ Damayan Claim Request - Admin Dashboard Styling
+   Prefix: damaCR-
+   Author: ChatGPT
+   ========================================================= */
+
+:root {
+  --damaCR-primary: #104282;
+  --damaCR-success: #198754;
+  --damaCR-danger: #d32f2f;
+  --damaCR-warning: #f57c00;
+  --damaCR-bg: #f9fafc;
+  --damaCR-border: #e0e0e0;
+  --damaCR-light: #ffffff;
+  --damaCR-dark: #333;
+}
+
+/* 🧭 Container */
+.damaCR-container {
+  background: var(--damaCR-bg);
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  color: var(--damaCR-dark);
+}
+
+/* 🏷️ Title */
+.damaCR-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--damaCR-primary);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.damaCR-title-accent {
+  width: 6px;
+  height: 25px;
+  border-radius: 3px;
+  background: var(--damaCR-primary);
+}
+
+/* ✅ Status message */
+.damaCR-status-msg {
+  background: #e8f5e9;
+  color: var(--damaCR-success);
+  border: 1px solid var(--damaCR-success);
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: damaCR-fadeIn 0.3s ease-in-out;
+}
+
+/* ❌ Error text */
+.damaCR-text-red {
+  color: var(--damaCR-danger);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* 📋 Table */
+.damaCR-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+}
+.damaCR-table th,
+.damaCR-table td {
+  border: 1px solid var(--damaCR-border);
+  padding: 10px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.damaCR-table th {
+  background: var(--damaCR-primary);
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.damaCR-table tr:nth-child(even) {
+  background: #f7f9fc;
+}
+.damaCR-no-data {
+  text-align: center;
+  font-style: italic;
+  padding: 20px;
+  color: #777;
+}
+
+/* 🔘 Action Buttons */
+.damaCR-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+}
+
+.damaCR-btn-approve,
+.damaCR-btn-release {
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.damaCR-btn-approve {
+  background: var(--damaCR-success);
+}
+.damaCR-btn-approve:hover {
+  background: #146c43;
+}
+
+.damaCR-btn-release {
+  background: var(--damaCR-primary);
+}
+.damaCR-btn-release:hover {
+  background: #0b2f5c;
+}
+
+/* 🪟 Modal */
+.damaCR-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: damaCR-fadeIn 0.25s ease-in-out;
+}
+.damaCR-modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  width: 420px;
+  text-align: center;
+  animation: damaCR-slideUp 0.3s ease-in-out;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+}
+.damaCR-modal-content h3 {
+  color: var(--damaCR-primary);
+  margin-bottom: 10px;
+}
+.damaCR-modal-content p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+.damaCR-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* 🟢 Confirm + Cancel Buttons */
+.damaCR-btn-submit {
+  background: var(--damaCR-success);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.damaCR-btn-submit:hover {
+  background: #146c43;
+}
+
+.damaCR-btn-cancel {
+  background: #ccc;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.damaCR-btn-cancel:hover {
+  background: #bbb;
+}
+
+/* 🪶 Hover highlight for table rows */
+.damaCR-table tbody tr:hover {
+  background: #eef3fb;
+  transition: background 0.2s;
+}
+
+/* ✨ Animations */
+@keyframes damaCR-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes damaCR-slideUp {
+  from { transform: translateY(25px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.damaCR-btn-endorse {
+  background: var(--damaCR-warning);
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.damaCR-btn-endorse:hover {
+  background: #e65100;
+}
+
+.damaCR-btn-ready {
+  background: #fbc02d;
+  color: #333;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.damaCR-btn-ready:hover {
+  background: #f9a825;
+}
+
+/* ----------------------------- */
+.damaCR-image-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.damaCR-preview-image {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.damaCR-view-btn {
+  background: #104282;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+/* ------------ */
+
+.damaCR-release-summary {
+  margin: 15px 0;
+  padding: 12px 18px;
+  background: #f5f7fb;
+  border-radius: 10px;
+  list-style: none;
+}
+
+.damaCR-release-summary li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #dcdfe6;
+  font-size: 15px;
+}
+
+.damaCR-release-summary li:last-child {
+  border-bottom: none;
+}
+
+.damaCR-release-summary strong {
+  color: #104282;
+  font-size: 16px;
+}

@@ -1,0 +1,333 @@
+/* =========================================================
+   SENIOR-FRIENDLY REQUEST MEMBERSHIP FORM
+   Clean, readable, and accessible
+========================================================= */
+.optional-label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-weight: normal;
+  margin-left: 4px;
+}
+
+.camera-btn {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  width: 150px;
+  border-radius: 6px;
+  border: 1px solid #2563eb;
+  background: #ffffff;
+  color: #2563eb;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.camera-btn:hover {
+  background: #2563eb;
+  color: white;
+}
+
+.RequestMemberCont {
+  max-width: 900px;
+  margin: 10px auto;
+  padding: 10px 40px 30px 40px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+}
+
+.LFormLogo{
+  margin: 15px auto 0px;
+}
+
+.LFormLogo img {
+  width: 120px;
+  display: block;
+  margin: 0 auto; /* Centers the actual image */
+}
+
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  animation: popupFade 0.3s ease;
+}
+
+.popup-box button {
+  margin-top: 15px;
+  padding: 8px 18px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@keyframes popupFade {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+.request-member-form h2 {
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.required-asterisk {
+  color: red;
+  margin-left: 4px;
+  font-weight: bold;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 30px 0 15px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #d1d5db;
+}
+
+
+/* =========================================================
+   FORM STRUCTURE
+========================================================= */
+.LFormRow {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.LFormGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.LFormGroup label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #374151;
+  font-size: 1.1rem;
+}
+
+/* =========================================================
+   INPUTS & SELECTS
+========================================================= */
+.LFormGroup input,
+.LFormGroup select {
+  padding: 12px 14px;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  transition: all 0.2s ease;
+  outline: none;
+  background-color: #f9fafb;
+}
+
+.LFormGroup input:focus,
+.LFormGroup select:focus {
+  border-color: #2563eb;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* =========================================================
+   IMAGE PREVIEW
+========================================================= */
+.img-preview {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  margin-top: 10px;
+  transition: transform 0.2s ease;
+}
+
+.img-preview:hover {
+  transform: scale(1.02);
+}
+
+/* =========================================================
+   DISQUALIFY WARNING
+========================================================= */
+.disqualify-warning {
+  background: #ffe5e5;
+  color: #b91c1c;
+  padding: 14px 18px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid #fca5a5;
+}
+
+/* =========================================================
+   BUTTON STYLES
+========================================================= */
+.submit-btn {
+  width: 100%;
+  background-color: #15803d;
+  color: #ffffff;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 30px;
+}
+
+.submit-btn:hover {
+  background-color: #166534;
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   ALREADY SUBMITTED NOTICE
+========================================================= */
+.already-submitted {
+  background: #e0f2fe;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  color: #075985;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 1px solid #7dd3fc;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+@media (max-width: 768px) {
+  .RequestMemberCont {
+    padding: 25px;
+  }
+
+  .LFormRow {
+    flex-direction: column;
+  }
+
+  .LFormGroup label {
+    font-size: 1rem;
+  }
+
+  .LFormGroup input,
+  .LFormGroup select {
+    font-size: 1rem;
+    padding: 10px 12px;
+  }
+
+  .submit-btn {
+    font-size: 1.1rem;
+    padding: 12px 20px;
+  }
+}
+
+.status-card {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 40px 30px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  font-family: Poppins, sans-serif;
+}
+
+.status-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.status-card h2 {
+  font-size: 1.6rem;
+  color: #0a3d62;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.sub {
+  color: #3d556b;
+  margin-bottom: 20px;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background: #e5e7eb;
+  margin: 20px auto;
+  width: 80%;
+}
+
+.verify-text {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.verify-link {
+  color: #1976d2;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.verify-link:hover {
+  text-decoration: underline;
+}
+
+.submitted-wrapper {
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  align-items: flex-start;  /* keeps it slightly lower, not middle of screen */
+  padding-top: 60px;        /* pushes it down from navbar */
+  min-height: calc(100vh - 60px);
+}
+
+.upload-options {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.upload-options input[type="file"] {
+  border: 1px solid #d1d5db;
+  padding: 5px;
+  border-radius: 8px;
+  background: #fff;
+}

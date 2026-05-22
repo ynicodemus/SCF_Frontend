@@ -1,0 +1,168 @@
+:root {
+  --primary: #1976d2;
+  --bg-right: #f7f9fc; 
+  --text-dark: #1f2933;
+  --muted: #666b73;
+}
+
+/* ==== MAIN CONTAINER ==== */
+.LPHome-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==== HERO SECTION ==== */
+.LPHome-hero-section {
+  display: flex;
+  height: calc(100vh - 80px); 
+}
+
+.LPHome-hero-left {
+  flex: 1;
+  overflow: hidden;
+}
+
+.LPHome-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.LPHome-hero-right {
+  flex: 1;
+  background-color: var(--bg-right);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+/* ==== TEXT ==== */
+.LPHome-main-content {
+  max-width: 600px;
+  text-align: left;
+}
+
+.LPHome-welcome-line {
+  margin: 0 0 12px 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.LPHome-brand-line {
+  margin: 0 0 18px 0;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+
+.LPHome-brand-line span {
+  color: var(--primary);
+  display: inline;
+}
+
+.LPHome-tagline {
+  margin: 0 0 18px 0;
+  font-size: 1.2rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ==== BUTTON ==== */
+.LPHome-cta-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(25, 118, 210, 0.15);
+  transition: background 0.3s;
+}
+
+.LPHome-cta-button:hover {
+  background-color: #1558b0;
+}
+
+/* ==== FOOTER ==== */
+
+/* Footer */
+.LPHome-footer {
+  background: #f5f7fa;
+  padding: 10px;
+  border-top: 1px solid #dce2e8;
+}
+
+.LPHome-footer-bottom {
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+
+.LPHome-privacy {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #777;
+}
+
+
+/* ====================================================
+   RESPONSIVE
+==================================================== */
+
+@media (max-width: 1100px) {
+  .LPHome-brand-line {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .LPHome-hero-section {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .LPHome-hero-left {
+    height: 300px;
+  }
+
+  .LPHome-brand-line {
+    font-size: 2.4rem;
+    white-space: normal;
+  }
+
+  .LPHome-welcome-line {
+    white-space: normal;
+  }
+
+  .LPHome-main-content {
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .LPHome-welcome-line {
+    font-size: 1.1rem;
+  }
+
+  .LPHome-brand-line {
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+
+  .LPHome-tagline {
+    font-size: 0.95rem;
+  }
+
+  .LPHome-hero-right {
+    padding: 2rem 1rem;
+  }
+}

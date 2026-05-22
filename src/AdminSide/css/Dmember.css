@@ -1,0 +1,860 @@
+/* =========================================================
+   🪙 Damayan Program Members Dashboard Styles
+   Prefix: damaM-
+   Author: ChatGPT (for SeniorConnect Admin Dashboard)
+   ========================================================= */
+
+:root {
+  --damaM-primary: #104282;
+  --damaM-primary-dark: #0b2f5a; 
+  --damaM-accent: #ffcc00;
+  --damaM-bg: #f8f9fc;
+  --damaM-border: #e2e8f0;
+  --damaM-success: #28a745;
+  --damaM-error: #dc3545;
+  --damaM-text: #333;
+  --damaM-muted: #777;
+  --damaM-radius: 10px;
+}
+
+
+/* ====== PAGINATION ====== */
+.damaM-pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin: 5px 0;
+  padding: 10px;
+}
+
+
+
+/* ====== MAIN CONTAINER ====== */
+.damaM-main {
+  background: var(--damaM-bg);
+  border-radius: var(--damaM-radius);
+  font-family: "Poppins", sans-serif;
+  color: var(--damaM-text);
+}
+
+/* ====== HEADER (Title + Buttons aligned) ====== */
+.damaM-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.damaM-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--damaM-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.damaM-title-accent {
+  width: 6px;
+  height: 24px;
+  background: var(--damaM-primary);
+  border-radius: 3px;
+}
+
+.damaM-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ====== SEARCH INPUT ====== */
+.damaM-search-input {
+  padding: 9px 14px;
+  border: 1px solid var(--damaM-border);
+  border-radius: var(--damaM-radius);
+  width: 250px;
+  transition: 0.3s;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.damaM-search-input:focus {
+  border-color: var(--damaM-primary);
+  outline: none;
+}
+
+/* ====== BUTTONS ====== */
+.damaM-btn-submit{
+  background: var(--damaM-primary);
+  color: white;
+  border: none;
+  padding: 9px 18px;
+  border-radius: var(--damaM-radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.25s;
+  width: 300px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.damaM-btn-pay,
+.damaM-btn-claim,
+.damaM-btn-history,
+.damaM-btn-delete-all {
+  background: var(--damaM-primary);
+  color: white;
+  border: none;
+  padding: 9px 18px;
+  border-radius: var(--damaM-radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.damaM-verify-actions #verify,
+.damaM-btn-add {
+  min-width: 100px;
+  background: #198754;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: var(--damaM-radius);
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 17px;
+  transition: 0.25s;
+}
+
+.damaM-btn-add:hover,
+.damaM-verify-actions #verify:hover{
+  background: #0a5331;
+}
+.damaM-btn-submit:hover,
+.damaM-btn-pay:hover,
+.damaM-btn-claim:hover,
+.damaM-btn-history:hover {
+  background: var(--damaM-primary-dark);
+}
+
+/* ====== CANCEL BUTTON ====== */
+.damaM-btn-cancel {
+  color: white;
+  border: none;
+  padding: 9px 18px;
+  border-radius: var(--damaM-radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.25s;
+  width: 300px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.damaM-btn-cancel:hover {
+  background: #b3b3b3;
+}
+
+/* ====== STATUS TOASTS ====== */
+.damaM-toast-success {
+  background: var(--damaM-success);
+  color: white;
+  padding: 10px 16px;
+  border-radius: var(--damaM-radius);
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.damaM-add-status {
+  background: var(--damaM-primary);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: var(--damaM-radius);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* ====== TOTAL SECTION ====== */
+.damaM-total {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: var(--damaM-text);
+}
+
+/* ====== TABLE ====== */
+.damaM-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 10px;
+  overflow: visible;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Table header */
+.damaM-table thead th {
+  background: #104282;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Table body */
+.damaM-table tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 14px;
+  color: #333;
+}
+
+.damaM-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover effect */
+.damaM-table tbody tr:hover {
+  background-color: #f5f8ff;
+}
+
+/* Rounded corners */
+.damaM-table thead tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+.damaM-table thead tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+/* No data row */
+.damaM-no-data {
+  text-align: center;
+  color: #777;
+  padding: 15px;
+}
+
+/* Payment highlight */
+.damaM-no-pay {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+/* Action buttons inside table */
+.damaM-actions-cell {
+  display: flex;
+  gap: 8px;
+}
+
+.damaM-btn-pay,
+.damaM-btn-history,
+.damaM-btn-claim {
+  background: #104282;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.damaM-btn-pay:hover,
+.damaM-btn-history:hover,
+.damaM-btn-claim:hover {
+  background: #0b2f5c;
+}
+
+/* ====== MODALS ====== */
+/* =========================================================
+   💾 Add Damayan Member Modal
+   Prefix: damaM-
+   ========================================================= */
+
+/* Modal container */
+.damaM-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.damaM-modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: var(--damaM-radius);
+  width: 500px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: damaM-modalFade 0.25s ease;
+}
+
+@keyframes damaM-modalFade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Modal Title */
+.damaM-modal-actions{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.damaM-modal-content h3 {
+  color: var(--damaM-primary);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  text-align: center;
+  margin-top: -5px;
+}
+
+/* Small description below title */
+.damaM-modal-desc {
+  font-size: 14px;
+  color: var(--damaM-muted);
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+/* Input styling */
+.damaM-modal-content input[type="text"] {
+  width: 90%;
+  padding: 8px 10px;
+  border: 1px solid var(--damaM-border);
+  border-radius: var(--damaM-radius);
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: 0.25s;
+}
+
+.damaM-modal-content input[type="text"]:focus {
+  border-color: var(--damaM-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(16, 66, 130, 0.1);
+}
+
+/* Verify and Close buttons */
+.damaM-verify-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.damaM-btn-verify {
+  background: var(--damaM-primary);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: var(--damaM-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.damaM-btn-verify:hover {
+  background: var(--damaM-primary-dark);
+}
+
+.damaM-btn-cancel {
+  background: #d9d9d9;
+  color: #333;
+  border: none;
+  padding: 8px 18px;
+  border-radius: var(--damaM-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.damaM-btn-cancel:hover {
+  background: #bcbcbc;
+}
+
+/* Verification Result Box */
+.damaM-verify-result {
+  margin-top: 15px;
+  background: #f5f7ff;
+  border-left: 4px solid var(--damaM-primary);
+  padding: 12px;
+  border-radius: var(--damaM-radius);
+  font-size: 14px;
+  animation: damaM-slideIn 0.25s ease;
+}
+
+@keyframes damaM-slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.damaM-verify-result p {
+  margin: 5px 0;
+}
+
+.damaM-verify-result button {
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Error message */
+.damaM-error-text {
+  color: var(--damaM-error);
+  font-size: 14px;
+  margin-top: 10px;
+  background: #ffe6e6;
+  border-left: 4px solid var(--damaM-error);
+  padding: 8px 10px;
+  border-radius: var(--damaM-radius);
+}
+
+/* Responsive modal adjustments */
+@media (max-width: 480px) {
+  .damaM-modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .damaM-btn-verify,
+  .damaM-btn-cancel {
+    flex: 1;
+    text-align: center;
+  }
+
+  .damaM-verify-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+
+/* ====== HISTORY MODAL ====== */
+.damaM-history-modal {
+  width: 700px;
+}
+
+.damaM-history-title {
+  color: var(--damaM-primary);
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+.damaM-history-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.damaM-history-table-container {
+  max-height: 320px; /* adjust depending on your modal size */
+  overflow-y: auto;
+  margin-top: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.damaM-history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.damaM-history-table th {
+  background: var(--damaM-primary-dark);
+  color: white;
+  padding: 8px;
+  font-size: 13px;
+}
+
+.damaM-history-table td {
+  padding: 8px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--damaM-border);
+}
+
+.damaM-history-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+/* Optional: scrollbar design (for better UI) */
+.damaM-history-table-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.damaM-history-table-container::-webkit-scrollbar-thumb {
+  background-color: #b0b0b0;
+  border-radius: 10px;
+}
+
+.damaM-history-table-container::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
+
+/* Fix table headers so they stay visible while scrolling */
+.damaM-history-table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #104282; /* same as your header color */
+  color: white;
+  z-index: 1;
+}
+
+/* ====== FORM ELEMENTS ====== */
+.damaM-form-group {
+  margin-bottom: 12px;
+}
+
+.damaM-form-group input,
+.damaM-form-group textarea,
+.damaM-form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--damaM-border);
+  border-radius: var(--damaM-radius);
+  font-size: 14px;
+  background: white;
+}
+
+.damaM-form-group input:focus,
+.damaM-form-group textarea:focus,
+.damaM-form-group select:focus {
+  border-color: var(--damaM-primary);
+  outline: none;
+}
+
+.damaM-help-text {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* ====== CLAIM & PAYMENT STATUS ====== */
+.damaM-claim-status,
+.damaM-payment-status {
+  margin: 10px 0;
+  padding: 8px;
+  text-align: center;
+  border-radius: var(--damaM-radius);
+  font-weight: 500;
+}
+
+.damaM-success {
+  background: var(--damaM-success);
+  color: white;
+}
+
+.damaM-error {
+  background: var(--damaM-error);
+  color: white;
+}
+
+/* ====== VERIFY SECTION ====== */
+.damaM-verify-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.damaM-verify-result {
+  margin-top: 15px;
+  background: #f5f7ff;
+  border-left: 4px solid var(--damaM-primary);
+  padding: 10px;
+  border-radius: var(--damaM-radius);
+}
+
+.damaM-error-text {
+  color: var(--damaM-error);
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .damaM-table,
+  .damaM-history-modal {
+    font-size: 12px;
+  }
+  .damaM-modal-content {
+    width: 90%;
+  }
+  .damaM-actions-right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+.damaM-action-menu {
+  position: relative;
+  display: inline-block;
+  z-index: 50;
+}
+
+.damaM-menu-toggle {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #104282;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 4px 8px;
+  transition: 0.2s ease;
+}
+.damaM-menu-toggle:hover {
+  background: #f0f4ff;
+  color: #0b2f5c;
+}
+
+.damaM-dropdown {
+  position: absolute;
+  top: -45px;
+  right: -80px;
+  margin-top: 4px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: damaM-fadeIn 0.2s ease;
+}
+
+.damaM-dropdown button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.damaM-dropdown button:hover {
+  background: #f5f8ff;
+  color: #104282;
+}
+
+@keyframes damaM-fadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.damaM-history-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 15px;
+}
+
+.damaM-filter-select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.damaM-btn-export {
+  background-color: #104282;
+  color: white;
+  border: none;
+  padding: 2px 2px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 150px;
+  font-weight: 2;
+  font-size: 15px;
+}
+.damaM-btn-export:hover {
+  background-color: #0c3064;
+}
+
+.damaM-history-summary {
+  margin-top: 15px;
+  padding: 10px;
+  background: #f9fafb;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.damaM-empty {
+  text-align: center;
+  color: #666;
+  padding: 15px;
+}
+
+.damaM-empty span {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* ⚠️ Warning Modal Styling */
+/* ⚠️ No Payment Warning Modal Styling */
+.damaM-warning-modal {
+  background: #fff;
+  border-radius: 18px;
+  padding: 28px 32px;
+  width: 540px;
+  max-width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.3s ease;
+  text-align: center;
+  position: relative;
+}
+
+/* Header / Title */
+.damaM-warning-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #b71c1c;
+  margin-bottom: 12px;
+}
+
+/* Body text */
+.damaM-warning-text {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Buttons container */
+.damaM-warning-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Proceed button */
+.damaM-btn-proceeds {
+  background-color: #104282;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.15s ease;
+  flex: 1;
+  width: 150px;
+}
+
+.damaM-btn-proceeds:hover {
+  background-color: #0c3060;
+  transform: scale(1.03);
+}
+
+/* Cancel button */
+.damaM-btn-cancels {
+  background-color: #c4c4c4;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 400;
+  transition: background 0.2s ease, transform 0.15s ease;
+  flex: 1;
+  max-width: 150px;
+}
+
+.damaM-btn-cancels:hover {
+  background-color: #a8a8a8;
+  transform: scale(1.03);
+}
+
+/* Overlay */
+.damaM-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(16, 66, 130, 0.2);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Row that contains total + download button */
+.damaM-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  padding: 0 2px;
+  flex-wrap: wrap;
+}
+
+/* Total text */
+.damaM-total {
+  font-size: 15px;
+  font-weight: 500;
+  color: #222;
+}
+
+/* Download Backup button */
+.damaM-btn-download {
+  background-color: #104282;
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  width: 200px;
+}
+
+
+.damaM-btn-download:hover {
+  background-color: #0b2f5a;
+}

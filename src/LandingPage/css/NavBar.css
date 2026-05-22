@@ -1,0 +1,224 @@
+:root{
+  --primary: #1976d2;
+  --primary-dark: #1653a5;
+  --text-dark: #333;
+  --bg-light: #fff;
+  font-family: 'Poppins', 'Verdana', 'Tahoma', 'Arial', sans-serif;
+}
+
+/* ---------- Desktop Navbar ---------- */
+.LandingPageNav {
+  background-color: var(--bg-light);
+  border-bottom: 4px solid var(--primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}
+
+/* Logo area */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+}
+
+.logo-text {
+  color: var(--primary);
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Desktop nav links */
+.LP_NavLink {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.LP_NavLink li a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  position: relative;
+  padding-bottom: 6px;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+/* underline animation for desktop */
+.LP_NavLink li a::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+.LP_NavLink li a:hover { color: var(--primary); }
+.LP_NavLink li a:hover::after { width: 100%; }
+.LP_NavLink li a.active { color: var(--primary); font-weight: 700; }
+.LP_NavLink li a.active::after { width: 100%; }
+
+/* Hamburger (hidden on desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background-color: var(--text-dark);
+  transition: 0.3s;
+  border-radius: 3px;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* smooth dropdown animation keyframe (shared) */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------
+   SINGLE MOBILE MEDIA QUERY
+   (replace all other mobile blocks)
+   ------------------------- */
+@media (max-width: 768px) {
+  /* NAVBAR (compact horizontal bar) */
+  .LandingPageNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;            /* consistent bar height */
+    padding: 0 16px;
+    border-bottom: 4px solid var(--primary);
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 120;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  /* Logo: hide full text, show icon */
+  .logo-text { display: none; }
+  .nav-logo-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    box-sizing: border-box;
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: auto;
+    height: 100%;
+  }
+
+  /* Hamburger: visible, centered, good tap target */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: auto;
+    border-radius: 8px;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    z-index: 125;
+  }
+  .hamburger span {
+    width: 24px;
+    height: 3px;
+    background: var(--text-dark);
+    border-radius: 3px;
+  }
+  .hamburger:active { background: rgba(0,0,0,0.03); }
+  .hamburger:focus { outline: 3px solid rgba(25,118,210,0.18); outline-offset: 2px; }
+
+  /* Dropdown menu (absolute, full width) */
+  .LP_NavLink {
+    /* base hidden state — no extra padding */
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 60px;            /* same as nav height */
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    box-sizing: border-box;
+  }
+  
+  /* shown state: small overall padding + small gap between items */
+  .LP_NavLink.show {
+    display: flex;
+    padding: 6px 12px;   /* small outer padding */
+    gap: 6px;            /* space between items */
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    border-radius: 0 0 6px 6px;
+    z-index: 115;
+  }
+  
+  /* list item reset */
+  .LP_NavLink li {
+    list-style: none;
+    margin: 0;           /* important: remove default margins */
+    padding: 0;
+  }
+  
+  /* link sizing — compact but still touch-friendly */
+  .LP_NavLink li a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 10px;   /* comfortable tap area (≈44px row) */
+    min-height: 44px;    /* ensures consistent row height */
+    font-size: 1.05rem;
+    line-height: 1.1;
+    color: var(--text-dark);
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+
+  /* disable desktop underline animation on mobile to avoid "dot" */
+  .LP_NavLink li a::after { display: none; }
+
+  /* Mobile active state */
+  .LP_NavLink li a.active { color: var(--primary); font-weight: 700; }
+
+  /* ensure top spacing below the blue divider */
+  .LP_NavLink.show { padding-top: 14px; }
+}
